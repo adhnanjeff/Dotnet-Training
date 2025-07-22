@@ -1,4 +1,4 @@
-# 🛠️ Ticket Request Management System - Phase 2
+# 🛠️ Ticket Request Management System - Project 2
 
 This project builds upon Phase 1 by introducing **Agent-based ticket assignment and resolution**. It simulates a request system where agents assign and resolve requests with a trackable resolution time.
 
