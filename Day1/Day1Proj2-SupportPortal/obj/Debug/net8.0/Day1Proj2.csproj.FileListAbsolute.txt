@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\bin\Debug\net8.0\Day1Proj2.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\bin\Debug\net8.0\Day1Proj2.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\bin\Debug\net8.0\Day1Proj2.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\bin\Debug\net8.0\Day1Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\bin\Debug\net8.0\Day1Proj2.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\refint\Day1Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\Day1Proj2.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day1\Day1Proj2-SupportPortal\obj\Debug\net8.0\ref\Day1Proj2.dll
