@@ -1,6 +1,6 @@
 using System;
 
-namespace Day1Proj1Phase1.Models
+namespace Day1Proj1Phase2.Models
 {
     public class Ticket
     {
@@ -14,42 +14,34 @@ namespace Day1Proj1Phase1.Models
         public DateTime IssueDate { get; private set; }
         public DateTime CloseDate { get; private set; }
 
-
         public Ticket(int id, string title, string description, User createdBy, string tp, User at)
         {
             TicketId = id;
             Title = title;
             Description = description;
-            Status = "New"; // Default status
+            Status = "New";
             CreatedBy = createdBy;
             TicketPriority = tp;
             AssignedTo = at;
             IssueDate = DateTime.Now;
-            CloseDate = DateTime.MinValue; // Default value indicating ticket is not closed yet
+            CloseDate = DateTime.MinValue;
         }
 
-        public void displaySummary()
+        public static void DisplaySummary(Ticket ticket)
         {
-            Console.WriteLine($"Ticket #{ticket.TicketId}: {ticket.Title} - {ticket.Status} - {ticket.TicketPriority} - Assigned to: {AssignedTo.name}\r\n   Created On: {Date}");
+            Console.WriteLine($"Ticket #{ticket.TicketId}: {ticket.Title} - {ticket.Status} - {ticket.TicketPriority} - Assigned to: {ticket.AssignedTo.Name}\n   Created On: {ticket.IssueDate}");
         }
 
-        public void closeTicket()
+        public static void ReassignTicket(Ticket ticket, User newAssignee)
+        {
+            ticket.AssignedTo = newAssignee;
+            Console.WriteLine($"Ticket #{ticket.TicketId} has been reassigned to {ticket.AssignedTo.Name}.");
+        }
+
+        public void CloseTicket()
         {
             Status = "Closed";
             CloseDate = DateTime.Now;
-        }
-
-        //public static void DisplayTicket(Ticket ticket)
-        //{
-        //    Console.WriteLine("------ Ticket Info ------");
-        //    Console.WriteLine($"TicketId: {ticket.TicketId}");
-        //    Console.WriteLine($"Ticket Priority: {ticket.TicketPriority}");
-        //    Console.WriteLine($"Title: {ticket.Title}");
-        //    Console.WriteLine($"Description: {ticket.Description}");
-        //    Console.WriteLine($"Status: {ticket.Status}");
-        //    Console.WriteLine("Created By:");
-        //    User.DisplayUser(ticket.CreatedBy);
-        //    Console.WriteLine($"Assigned To: {AssignedTo.name}");
         }
     }
 }

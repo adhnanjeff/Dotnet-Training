@@ -1,6 +1,6 @@
 using System;
 
-namespace Day1Proj1Phase1.Models
+namespace Day1Proj1Phase2.Models
 {
     public class User
     {
