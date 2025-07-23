@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\bin\Debug\net8.0\Day2Proj2.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\bin\Debug\net8.0\Day2Proj2.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\bin\Debug\net8.0\Day2Proj2.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\bin\Debug\net8.0\Day2Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\bin\Debug\net8.0\Day2Proj2.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\refint\Day2Proj2.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\Day2Proj2.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS\obj\Debug\net8.0\ref\Day2Proj2.dll
