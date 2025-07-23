@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Day2Proj1Phase1-IssueTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+899d1991b8accdebb66de606b3957613663932a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e441ddf50d9cab16ebd57d5916ae0567507cc07")]
 [assembly: System.Reflection.AssemblyProductAttribute("Day2Proj1Phase1-IssueTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Day2Proj1Phase1-IssueTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
