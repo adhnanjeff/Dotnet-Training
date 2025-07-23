@@ -1,0 +1,232 @@
+Day 2 – Project 2 Documentation: SupportDeskPro
+==============================================
+
+This document walks you through building the SupportDeskPro ticketing system.
+
+---
+
+1. Create the Project Folder Structure
+--------------------------------------
+```
+SupportDeskPro/
+├── Models/
+│   ├── SupportTicket.cs
+│   ├── BugReport.cs
+│   ├── FeatureRequest.cs
+│   └── IReportable.cs
+└── Program.cs
+```
+
+---
+
+2. Create the `SupportTicket` Base Class
+----------------------------------------
+File: Models/SupportTicket.cs
+
+```
+using System;
+
+namespace Day2Proj2.Models;
+
+public class SupportTicket
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string CreateBy { get; set; }
+    public string Status { get; set; }
+
+    public SupportTicket(int id, string title, string description, string createBy) {
+        if (id <= 0)
+            throw new ArgumentException("ID must be a positive integer.", nameof(id));
+        if (string.IsNullOrWhiteSpace(title))
+            throw new ArgumentException("Title cannot be empty.", nameof(title));
+        if (string.IsNullOrWhiteSpace(description))
+            throw new ArgumentException("Description cannot be empty.", nameof(description));
+        if (string.IsNullOrWhiteSpace(createBy))
+            throw new ArgumentException("Created By cannot be empty.", nameof(createBy));
+        Id = id;
+        Title = title;
+        Description = description;
+        CreateBy = createBy;
+        Status = "Open";
+    }
+
+    public void closeTicket() {
+        if (Status == "Closed") {
+            Console.WriteLine("Ticket is already closed.");
+            return;
+        }
+        Status = "Closed";
+        Console.WriteLine($"Ticket #{Id} has been closed.");
+    }
+
+    public virtual void Display() {
+        Console.WriteLine($"Support Ticket ID: {Id}");
+        Console.WriteLine($"Title: {Title}");
+        Console.WriteLine($"Description: {Description}");
+        Console.WriteLine($"Created By: {CreateBy}");
+        Console.WriteLine($"Status: {Status}");
+    }
+}
+```
+
+---
+
+3. Create the `IReportable` Interface
+-------------------------------------
+File: Models/IReportable.cs
+
+```
+using System;
+
+namespace Day2Proj2.Models;    
+
+public interface IReportable
+{
+    public void ReportStatus();
+}
+```
+
+---
+
+4. Create the `BugReport` Class
+-------------------------------
+File: Models/BugReport.cs
+
+```
+using System;
+
+namespace Day2Proj2.Models;
+
+public class BugReport : SupportTicket, IReportable
+{
+    public string Severity { get; set; }
+    public BugReport(int id, string title, string description, string createBy, string severe) : base(id, title, description, createBy)
+    {
+        if (string.IsNullOrWhiteSpace(severe))
+            throw new ArgumentException("Requested By cannot be empty.", nameof(severe));
+        Severity = severe;
+    }
+    public void ReportStatus()
+    {
+        Console.WriteLine($"Bug Report: {Id} is under process, it is assigned to: {CreateBy}");
+        Console.WriteLine($"Severity: {Severity}");
+        Status = "In Progress";
+    }
+    public override void Display()
+    {
+        Console.WriteLine($"Bug Report ID: {Id}: {Title}");
+        Console.WriteLine($"Severity: {Severity}");
+        Console.WriteLine($"Created By: {CreateBy}");
+        Console.WriteLine($"Status: {Status}");
+    }
+}
+```
+
+---
+
+5. Create the `FeatureRequest` Class
+------------------------------------
+File: Models/FeatureRequest.cs
+
+```
+using System;
+
+namespace Day2Proj2.Models;
+
+public class FeatureRequest : SupportTicket, IReportable
+{
+    public string RequestedBy { get; set; }
+    public string ETA { get; set; }
+    public FeatureRequest(int id, string title, string description, string createBy, string requestedBy, string date) 
+        : base(id, title, description, createBy)
+    {
+        if (string.IsNullOrWhiteSpace(requestedBy))
+            throw new ArgumentException("Requested By cannot be empty.", nameof(requestedBy));
+        RequestedBy = requestedBy;
+        if (string.IsNullOrWhiteSpace(date))
+            throw new ArgumentException("Date cannot be empty.", nameof(date));
+        ETA = date;
+    }
+    public void ReportStatus()
+    {
+        Console.WriteLine($"Feature Request: {Id} is under process, it is assigned to: {CreateBy}, Requested By: {RequestedBy}, Expected Release Date: {ETA}");
+        Status = "In Progress";
+    }
+    public override void Display()
+    {
+        Console.WriteLine($"Feature Request ID: {Id}: {Title} | Requested By: {RequestedBy}, Expected Release Date: {ETA}");
+        Console.WriteLine($"Created By: {CreateBy}");
+        Console.WriteLine($"Status: {Status}");
+    }
+}
+```
+
+---
+
+6. Create the Main Application File
+-----------------------------------
+File: Program.cs
+
+```
+using Day2Proj2.Models;
+using System;
+using System.Collections;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        List<SupportTicket> tickets = new List<SupportTicket>();
+        BugReport br = new BugReport(1, "Login Issue", "Unable to login with valid credentials", "Alice", "High");
+        FeatureRequest fr = new FeatureRequest(2, "Add Dark Mode", "Implement dark mode in the application", "Alice", "Bob", "2023-12-31");
+
+        tickets.Add(br);
+        tickets.Add(fr);
+
+        Console.WriteLine("All Support Tickets:");
+        foreach (SupportTicket ticket in tickets)
+        {
+            ticket.Display();
+        }
+
+        Console.WriteLine("\nReporting Tickets:");
+        br.ReportStatus();
+        fr.ReportStatus();
+    }
+}
+```
+
+---
+
+7. Run & Test the Application
+-----------------------------
+- Use `dotnet build` to build the solution.
+- Use `dotnet run` to test the ticket creation, display, and status update functionalities.
+
+Output
+PS C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS> dotnet build
+Restore complete (0.3s)
+  Day2Proj2 succeeded (0.5s) → bin\Debug\net8.0\Day2Proj2.dll
+
+Build succeeded in 1.2s
+PS C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj2-MDS> dotnet run
+
+All Support Tickets:
+Bug Report ID: 1: Login Issue
+Severity: High
+Created By: Alice
+Status: Open
+Feature Request ID: 2: Add Dark Mode | Requested By: Bob, Expected Release Date: 2023-12-31
+Created By: Alice
+Status: Open
+
+Reporting Tickets:
+Bug Report: 1 is under process, it is assigned to: Alice
+Severity: High
+Feature Request: 2 is under process, it is assigned to: Alice, Requested By: Bob, Expected Release Date: 2023-12-31
+
+---
+
+✅ You now have a fully working OOP-based modular ticketing system!
