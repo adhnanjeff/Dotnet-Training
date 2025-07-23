@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\bin\Debug\net8.0\Day2Proj1Phase2-IssueTracker.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\bin\Debug\net8.0\Day2Proj1Phase2-IssueTracker.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\bin\Debug\net8.0\Day2Proj1Phase2-IssueTracker.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\bin\Debug\net8.0\Day2Proj1Phase2-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\bin\Debug\net8.0\Day2Proj1Phase2-IssueTracker.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\refint\Day2Proj1Phase2-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\Day2Proj1Phase2-IssueTracker.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day2\Day2Proj1Phase2-IssueTracker\obj\Debug\net8.0\ref\Day2Proj1Phase2-IssueTracker.dll
