@@ -162,4 +162,4 @@ git commit -m "feat: add Day3 Book Rental System project"
 git push origin main
 
 
-GitHub Repository: [https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3](https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3)
+GitHub Repository: [https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3/Day3Proj2-BookRentalSystem]
