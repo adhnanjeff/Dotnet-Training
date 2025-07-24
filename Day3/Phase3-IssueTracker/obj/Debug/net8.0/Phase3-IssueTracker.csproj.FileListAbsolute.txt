@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\bin\Debug\net8.0\Phase3-IssueTracker.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\bin\Debug\net8.0\Phase3-IssueTracker.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\bin\Debug\net8.0\Phase3-IssueTracker.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\bin\Debug\net8.0\Phase3-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\bin\Debug\net8.0\Phase3-IssueTracker.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\refint\Phase3-IssueTracker.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\Phase3-IssueTracker.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Phase3-IssueTracker\obj\Debug\net8.0\ref\Phase3-IssueTracker.dll

@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\bin\Debug\net8.0\Day3Proj2-BookRentalSystem.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\bin\Debug\net8.0\Day3Proj2-BookRentalSystem.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\bin\Debug\net8.0\Day3Proj2-BookRentalSystem.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\bin\Debug\net8.0\Day3Proj2-BookRentalSystem.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\bin\Debug\net8.0\Day3Proj2-BookRentalSystem.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\refint\Day3Proj2-BookRentalSystem.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\Day3Proj2-BookRentalSystem.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj2-BookRentalSystem\obj\Debug\net8.0\ref\Day3Proj2-BookRentalSystem.dll

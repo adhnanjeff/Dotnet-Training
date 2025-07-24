@@ -1,0 +1,165 @@
+
+# 📚 Book Rental System - Day 3
+
+This project demonstrates a simple **Book Rental System** using C# and object-oriented programming concepts like **abstraction**, **inheritance**, **interfaces**, and **polymorphism**.
+
+GitHub Repository: [Dotnet-Training - Day 3](https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3)
+
+## 🏗️ Project Structure
+
+
+Day3Proj2-BookRentalSystem/
+│
+├── Models/
+│   ├── Book.cs
+│   ├── Fiction.cs
+│   ├── NonFiction.cs
+│   └── IRentable.cs
+│
+├── Services/
+│   ├── IBookService.cs
+│   └── BookService.cs
+│
+└── Program.cs
+
+
+## 🧠 Concepts Used
+
+- **Abstract Class** (`Book`)
+- **Interfaces** (`IRentable`, `IBookService`)
+- **Inheritance** (`Fiction`, `NonFiction` inherit from `Book`)
+- **List<T>`, Polymorphism and Type Casting**
+
+## 💡 Step-by-Step Execution
+
+### 1. Define Abstract Class `Book`
+
+
+public abstract class Book {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public bool IsAvailable { get; set; }
+
+    public Book(int id, string title, string author) {
+        Id = id;
+        Title = title;
+        Author = author;
+        IsAvailable = true;
+    }
+
+    public abstract void Display();
+}
+
+
+### 2. Define Interface `IRentable`
+
+
+public interface IRentable {
+    void Rent();
+    void Return();
+    void BookReport();
+}
+
+
+### 3. Implement `Fiction` and `NonFiction` classes
+
+
+public class Fiction : Book, IRentable {
+    public string Genre { get; set; }
+
+    public void Rent() { ... }
+    public void Return() { ... }
+    public void BookReport() { ... }
+    public override void Display() { ... }
+}
+
+
+
+public class NonFiction : Book, IRentable {
+    public string Category { get; set; }
+
+    public void Rent() { ... }
+    public void Return() { ... }
+    public void BookReport() { ... }
+    public override void Display() { ... }
+}
+
+
+### 4. Define Interface and Service for Book Operations
+
+
+public interface IBookService {
+    void ReportStatus(List<IRentable> rented);
+    void DisplayAllBooks(List<Book> books);
+}
+
+
+
+public class BookService : IBookService {
+    public void DisplayAllBooks(List<Book> books) { ... }
+    public void ReportStatus(List<IRentable> rented) { ... }
+}
+
+
+### 5. Main Program
+
+
+static void Main(string[] args) {
+    // Create instances and use Rent/Return/Report methods
+}
+
+
+## 🖥️ Sample Output
+
+
+$Fiction Book Deatils:
+ID: 1
+Title: The White Knight
+Author: Dovstky
+Genre: Romance
+Available: Yes
+
+$Non-Fiction Book Deatils:
+ID: 2
+Title: Olivers Twist
+Author: Charles Dickens
+Genre: History
+Available: Yes
+
+You have rented 'The White Knight' by Dovstky.
+You have rented 'Olivers Twist' by Charles Dickens.
+
+Rented Books Report:
+Book Report for 'The White Knight' by Dovstky:
+ID: 1
+Genre: Romance
+Available: No
+
+Returning Books:
+You have returned 'The White Knight' by Dovstky.
+
+Updated Books Report:
+Book Report for 'The White Knight' by Dovstky:
+ID: 1
+Genre: Romance
+Available: Yes
+
+
+## 🧪 Git Commands to Push
+
+
+# Navigate to root if needed
+cd path/to/your/project
+
+# Stage project folder
+git add Day3Proj2-BookRentalSystem/
+
+# Commit with a message
+git commit -m "feat: add Day3 Book Rental System project"
+
+# Push to GitHub
+git push origin main
+
+
+GitHub Repository: [https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3](https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day3)

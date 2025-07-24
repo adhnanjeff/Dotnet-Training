@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\bin\Debug\net8.0\Day3Proj1-LMS.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\bin\Debug\net8.0\Day3Proj1-LMS.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\bin\Debug\net8.0\Day3Proj1-LMS.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\bin\Debug\net8.0\Day3Proj1-LMS.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\bin\Debug\net8.0\Day3Proj1-LMS.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\refint\Day3Proj1-LMS.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\Day3Proj1-LMS.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day3\Day3Proj1-LMS\obj\Debug\net8.0\ref\Day3Proj1-LMS.dll
