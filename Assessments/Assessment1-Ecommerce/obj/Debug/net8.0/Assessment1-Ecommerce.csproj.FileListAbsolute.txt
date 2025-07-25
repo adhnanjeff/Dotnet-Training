@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\bin\Debug\net8.0\Assessment1-Ecommerce.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\bin\Debug\net8.0\Assessment1-Ecommerce.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\bin\Debug\net8.0\Assessment1-Ecommerce.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\bin\Debug\net8.0\Assessment1-Ecommerce.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\bin\Debug\net8.0\Assessment1-Ecommerce.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\refint\Assessment1-Ecommerce.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\Assessment1-Ecommerce.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment1-Ecommerce\obj\Debug\net8.0\ref\Assessment1-Ecommerce.dll
