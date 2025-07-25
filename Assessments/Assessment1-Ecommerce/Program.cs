@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Assessment1_Ecommerce.Models;
 using Assessment1_Ecommerce.Services;
 
@@ -21,8 +22,11 @@ namespace Assessment1_Ecommerce
                     "3. Delete User\n" +
                     "4. Update User\n" +
                     "5. View All Users\n" +
-                    "6. Exit"
+                    "6. Buyer Portal\n" +
+                    "7. Seller Portal\n" +
+                    "8. Exit"
                 );
+
                 Console.Write("Enter your choice: ");
                 string? choice = Console.ReadLine();
 
@@ -36,6 +40,7 @@ namespace Assessment1_Ecommerce
                             Console.WriteLine("Invalid ID.");
                             break;
                         }
+
                         Console.Write("Enter Name: ");
                         string? buyerName = Console.ReadLine();
                         Console.Write("Enter Email: ");
@@ -66,6 +71,7 @@ namespace Assessment1_Ecommerce
                             Console.WriteLine("Invalid ID.");
                             break;
                         }
+
                         Console.Write("Enter Name: ");
                         string? sellerName = Console.ReadLine();
                         Console.Write("Enter Email: ");
@@ -117,6 +123,73 @@ namespace Assessment1_Ecommerce
                         break;
 
                     case "6":
+                        // Buyer portal
+                        var buyerUsers = users.OfType<Buyer>().ToList();
+                        if (buyerUsers.Count == 0)
+                        {
+                            Console.WriteLine("No buyers registered.");
+                            break;
+                        }
+
+                        Console.WriteLine("Select Buyer by ID to enter portal:");
+                        foreach (var b in buyerUsers)
+                        {
+                            Console.WriteLine($"ID: {b.Id}, Name: {b.Name}");
+                        }
+                        Console.Write("Enter Buyer ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int buyerPortalId))
+                        {
+                            Buyer? buyerUser = buyerUsers.FirstOrDefault(b => b.Id == buyerPortalId);
+                            if (buyerUser != null)
+                            {
+                                var sellerUsers = users.OfType<Seller>().ToList();
+                                buyerUser.BuyerPortal(sellerUsers);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Buyer not found.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid ID.");
+                        }
+                        break;
+
+                    case "7":
+                        // Seller portal
+                        var sellerUsersList = users.OfType<Seller>().ToList();
+                        if (sellerUsersList.Count == 0)
+                        {
+                            Console.WriteLine("No sellers registered.");
+                            break;
+                        }
+
+                        Console.WriteLine("Select Seller by ID to enter portal:");
+                        foreach (var s in sellerUsersList)
+                        {
+                            Console.WriteLine($"ID: {s.Id}, Name: {s.Name}");
+                        }
+                        Console.Write("Enter Seller ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int sellerPortalId))
+                        {
+                            Seller? sellerUser = sellerUsersList.FirstOrDefault(s => s.Id == sellerPortalId);
+                            if (sellerUser != null)
+                            {
+                                sellerUser.SellerPortal();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Seller not found.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid ID.");
+                        }
+                        break;
+
+                    case "8":
                         Console.WriteLine("Exiting...");
                         return;
 
@@ -127,4 +200,4 @@ namespace Assessment1_Ecommerce
             }
         }
     }
-}       
+}
