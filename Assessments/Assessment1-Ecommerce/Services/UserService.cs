@@ -14,6 +14,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("User cannot be null.");
                 return;
             }
+
             users.Add(user);
             Console.WriteLine($"User {user.Name} registered successfully.");
         }
@@ -26,17 +27,18 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("User not found.");
                 return;
             }
+
             Console.WriteLine("Enter new name:");
             string? newName = Console.ReadLine();
-            user.Name = newName ?? user.Name;
+            user.Name = string.IsNullOrEmpty(newName) ? user.Name : newName;
 
             Console.WriteLine("Enter new email:");
             string? newEmail = Console.ReadLine();
-            user.Email = newEmail ?? user.Email;
+            user.Email = string.IsNullOrEmpty(newEmail) ? user.Email : newEmail;
 
             Console.WriteLine("Enter new password:");
             string? newPassword = Console.ReadLine();
-            user.Password = newPassword ?? user.Password;
+            user.Password = string.IsNullOrEmpty(newPassword) ? user.Password : newPassword;
 
             Console.WriteLine($"User {user.Name} updated successfully.");
         }
@@ -49,6 +51,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("User not found.");
                 return;
             }
+
             users.Remove(user);
             Console.WriteLine($"User {user.Name} deleted successfully.");
         }
@@ -60,6 +63,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("No users found.");
                 return;
             }
+
             foreach (var user in users)
             {
                 user.DisplayUserInfo();

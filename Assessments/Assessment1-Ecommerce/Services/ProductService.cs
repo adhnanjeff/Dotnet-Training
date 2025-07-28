@@ -10,12 +10,10 @@ namespace Assessment1_Ecommerce.Services
         public List<Product> GetAllProductsFromSellers(List<Seller> sellers)
         {
             List<Product> allProducts = new List<Product>();
-
             foreach (var seller in sellers)
             {
                 allProducts.AddRange(seller.ListedProducts);
             }
-
             return allProducts;
         }
 
@@ -26,6 +24,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("No products available.");
                 return;
             }
+
             foreach (var product in products)
             {
                 product.DisplayProductInfo();
@@ -54,6 +53,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("Cannot add a null product.");
                 return;
             }
+
             products.Add(product);
             Console.WriteLine($"Product '{product.Name}' added successfully.");
         }
@@ -65,6 +65,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine("Cannot update a null product.");
                 return;
             }
+
             var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
             if (existingProduct != null)
             {
@@ -79,7 +80,7 @@ namespace Assessment1_Ecommerce.Services
                 Console.WriteLine($"Product with ID {updatedProduct.Id} not found.");
             }
         }
-            
+
         public void DeleteProduct(List<Product> products, int productId)
         {
             var productToRemove = products.FirstOrDefault(p => p.Id == productId);

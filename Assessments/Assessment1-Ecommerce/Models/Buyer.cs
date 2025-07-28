@@ -1,5 +1,6 @@
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using Assessment1_Ecommerce.Services;
 
 namespace Assessment1_Ecommerce.Models
@@ -21,8 +22,10 @@ namespace Assessment1_Ecommerce.Models
         public void BuyerPortal(List<Seller> allSellers)
         {
             ProductService productService = new ProductService();
+
             Console.WriteLine("Welcome to the Buyer Portal!");
             Console.WriteLine("You can add products to your cart and purchase them.");
+
             bool continueShopping = true;
 
             while (continueShopping)
@@ -32,7 +35,7 @@ namespace Assessment1_Ecommerce.Models
                 Console.WriteLine("3. Buy product from cart");
                 Console.WriteLine("4. Exit");
 
-                string choice = Console.ReadLine();
+                string? choice = Console.ReadLine();
 
                 switch (choice)
                 {
@@ -46,8 +49,8 @@ namespace Assessment1_Ecommerce.Models
                         Console.Write("Enter Product ID to add to cart: ");
                         if (int.TryParse(Console.ReadLine(), out int addId))
                         {
-                            var productToAdd = productService.FindProductById(
-                                productService.GetAllProductsFromSellers(allSellers), addId);
+                            var allProductsForAdd = productService.GetAllProductsFromSellers(allSellers);
+                            var productToAdd = productService.FindProductById(allProductsForAdd, addId);
                             if (productToAdd != null)
                             {
                                 AddToCart(productToAdd);
@@ -98,9 +101,8 @@ namespace Assessment1_Ecommerce.Models
         public void AddToCart(Product product)
         {
             if (product == null)
-            {
                 throw new ArgumentNullException(nameof(product), "Product cannot be null.");
-            }
+
             Cart.Add(product);
             Console.WriteLine($"Product '{product.Name}' added to cart.");
         }
@@ -108,17 +110,16 @@ namespace Assessment1_Ecommerce.Models
         public void BuyProduct(Product product)
         {
             if (product == null)
-            {
                 throw new ArgumentNullException(nameof(product), "Product cannot be null.");
-            }
+
             if (!Cart.Contains(product))
-            {
                 throw new InvalidOperationException("Product not in cart.");
-            }
+
             Cart.Remove(product);
             Bought.Add(product);
             Console.WriteLine($"Product '{product.Name}' purchased successfully.");
         }
+
         public override void DisplayUserInfo()
         {
             Console.WriteLine("------ Buyer Info ------");
