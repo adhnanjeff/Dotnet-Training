@@ -27,6 +27,7 @@ namespace IssueTracker.Infrastructure.Repositories
             existingBug.Title = title;
             existingBug.Status = status;
             Console.WriteLine($"Bug updated: {existingBug.Title}\n");
+            Console.WriteLine($"New Status: {existingBug.Status}\n");
         }
         public void DeleteBug(int id)
         {
@@ -36,6 +37,7 @@ namespace IssueTracker.Infrastructure.Repositories
 
             _bugs.Remove(bug);
             Console.WriteLine($"Bug deleted: {bug.Title}\n");
+
         }
     }
 }
