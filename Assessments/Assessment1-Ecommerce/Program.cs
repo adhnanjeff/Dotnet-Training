@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+﻿// Program.cs
+>>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +15,17 @@ namespace Assessment1_Ecommerce
         static void Main(string[] args)
         {
             List<User> users = new List<User>();
+            List<Seller> sellers = new List<Seller>();
+
             UserService userService = new UserService();
+            ProductService productService = new ProductService();
 
             while (true)
             {
-                Console.WriteLine(
-                    "\nWelcome to the E-commerce System! Please choose an option:\n" +
+                Console.WriteLine("\nWelcome to the E-commerce System! Please choose an option:\n" +
                     "1. Register as Buyer\n" +
                     "2. Register as Seller\n" +
+<<<<<<< Updated upstream
                     "3. Delete User\n" +
                     "4. Update User\n" +
                     "5. View All Users\n" +
@@ -26,6 +33,11 @@ namespace Assessment1_Ecommerce
                     "7. Seller Portal\n" +
                     "8. Exit"
                 );
+=======
+                    "3. Login as Buyer\n" +
+                    "4. View All Users\n" +
+                    "5. Exit");
+>>>>>>> Stashed changes
 
                 Console.Write("Enter your choice: ");
                 string? choice = Console.ReadLine();
@@ -33,14 +45,17 @@ namespace Assessment1_Ecommerce
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("Registering as Buyer...");
                         Console.Write("Enter ID: ");
+<<<<<<< Updated upstream
                         if (!int.TryParse(Console.ReadLine(), out int buyerId))
                         {
                             Console.WriteLine("Invalid ID.");
                             break;
                         }
 
+=======
+                        int.TryParse(Console.ReadLine(), out int buyerId);
+>>>>>>> Stashed changes
                         Console.Write("Enter Name: ");
                         string? buyerName = Console.ReadLine();
                         Console.Write("Enter Email: ");
@@ -48,30 +63,23 @@ namespace Assessment1_Ecommerce
                         Console.Write("Enter Password: ");
                         string? buyerPassword = Console.ReadLine();
                         Console.Write("Enter Shipping Address: ");
-                        string? shippingAddress = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(buyerName) ||
-                            string.IsNullOrWhiteSpace(buyerEmail) ||
-                            string.IsNullOrWhiteSpace(buyerPassword) ||
-                            string.IsNullOrWhiteSpace(shippingAddress))
-                        {
-                            Console.WriteLine("All fields are required.");
-                            break;
-                        }
-
-                        Buyer buyer = new Buyer(buyerId, buyerName, buyerEmail, buyerPassword, shippingAddress);
-                        userService.RegisterUser(users, buyer);
+                        string? shipping = Console.ReadLine();
+                        Buyer buyer = new Buyer(buyerId, buyerName!, buyerEmail!, buyerPassword!, shipping!);
+                        users.Add(buyer);
                         break;
 
                     case "2":
-                        Console.WriteLine("Registering as Seller...");
                         Console.Write("Enter ID: ");
+<<<<<<< Updated upstream
                         if (!int.TryParse(Console.ReadLine(), out int sellerId))
                         {
                             Console.WriteLine("Invalid ID.");
                             break;
                         }
 
+=======
+                        int.TryParse(Console.ReadLine(), out int sellerId);
+>>>>>>> Stashed changes
                         Console.Write("Enter Name: ");
                         string? sellerName = Console.ReadLine();
                         Console.Write("Enter Email: ");
@@ -79,46 +87,35 @@ namespace Assessment1_Ecommerce
                         Console.Write("Enter Password: ");
                         string? sellerPassword = Console.ReadLine();
                         Console.Write("Enter Store Name: ");
-                        string? storeName = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(sellerName) ||
-                            string.IsNullOrWhiteSpace(sellerEmail) ||
-                            string.IsNullOrWhiteSpace(sellerPassword) ||
-                            string.IsNullOrWhiteSpace(storeName))
-                        {
-                            Console.WriteLine("All fields are required.");
-                            break;
-                        }
-
-                        Seller seller = new Seller(sellerId, sellerName, sellerEmail, sellerPassword, storeName);
-                        userService.RegisterUser(users, seller);
+                        string? sellerStore = Console.ReadLine();
+                        Seller seller = new Seller(sellerId, sellerName!, sellerEmail!, sellerPassword!, sellerStore!);
+                        sellers.Add(seller);
+                        users.Add(seller);
                         break;
 
                     case "3":
-                        Console.Write("Enter User ID to delete: ");
-                        if (int.TryParse(Console.ReadLine(), out int deleteId))
+                        Console.Write("Enter your Email: ");
+                        string? loginEmail = Console.ReadLine();
+                        User? foundUser = users.Find(u => u.Email == loginEmail);
+                        if (foundUser is Buyer loggedInBuyer)
                         {
-                            userService.DeleteUser(users, deleteId);
+                            loggedInBuyer.BuyerPortal(sellers);
                         }
                         else
                         {
-                            Console.WriteLine("Invalid ID.");
+                            Console.WriteLine("Buyer not found or incorrect user type.");
                         }
                         break;
 
                     case "4":
-                        Console.Write("Enter User ID to update: ");
-                        if (int.TryParse(Console.ReadLine(), out int updateId))
+                        foreach (var user in users)
                         {
-                            userService.UpdateUser(users, updateId);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid ID.");
+                            user.DisplayUserInfo();
                         }
                         break;
 
                     case "5":
+<<<<<<< Updated upstream
                         userService.DisplayAllUsers(users);
                         break;
 
@@ -191,10 +188,13 @@ namespace Assessment1_Ecommerce
 
                     case "8":
                         Console.WriteLine("Exiting...");
+=======
+                        Console.WriteLine("Exiting system. Goodbye!");
+>>>>>>> Stashed changes
                         return;
 
                     default:
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("Invalid choice.");
                         break;
                 }
             }

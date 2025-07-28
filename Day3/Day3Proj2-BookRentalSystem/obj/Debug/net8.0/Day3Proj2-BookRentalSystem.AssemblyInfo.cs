@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Day3Proj2-BookRentalSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fe2dddce5ef80ae9d341152ce9c430f4388b01e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f65454eb8f1cbfc613d1f757ab3e1eba01f7f61b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Day3Proj2-BookRentalSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Day3Proj2-BookRentalSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

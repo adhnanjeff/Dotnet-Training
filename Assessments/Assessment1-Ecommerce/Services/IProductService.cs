@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Assessment1_Ecommerce.Models;
 
 namespace Assessment1_Ecommerce.Services
@@ -9,8 +9,6 @@ namespace Assessment1_Ecommerce.Services
         void UpdateProduct(List<Product> products, Product product);
         void DeleteProduct(List<Product> products, int productId);
         void DisplayAllProducts(List<Product> products);
-
-        Product FindProductById(List<Product> products, int productId);
-
-    } 
+        Product? FindProductById(List<Product> products, int productId);
+    }
 }

@@ -33,9 +33,15 @@ namespace Assessment1_Ecommerce.Models
                 Console.WriteLine("\n1. View all products");
                 Console.WriteLine("2. Add product to cart");
                 Console.WriteLine("3. Buy product from cart");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. View cart");
+                Console.WriteLine("5. Exit");
 
+<<<<<<< Updated upstream
                 string? choice = Console.ReadLine();
+=======
+                Console.Write("Enter your choice: ");
+                string choice = Console.ReadLine();
+>>>>>>> Stashed changes
 
                 switch (choice)
                 {
@@ -70,10 +76,10 @@ namespace Assessment1_Ecommerce.Models
                         Console.Write("Enter Product ID to purchase: ");
                         if (int.TryParse(Console.ReadLine(), out int buyId))
                         {
-                            var productToBuy = Cart.FirstOrDefault(p => p.Id == buyId);
+                            Product? productToBuy = Cart.FirstOrDefault(p => p.Id == buyId);
                             if (productToBuy != null)
                             {
-                                BuyProduct(productToBuy);
+                                BuyProduct(productToBuy!); // Null-forgiving operator used here
                             }
                             else
                             {
@@ -87,6 +93,21 @@ namespace Assessment1_Ecommerce.Models
                         break;
 
                     case "4":
+                        Console.WriteLine("\n--- Your Cart ---");
+                        if (Cart.Count == 0)
+                        {
+                            Console.WriteLine("Cart is empty.");
+                        }
+                        else
+                        {
+                            foreach (var item in Cart)
+                            {
+                                Console.WriteLine($"ID: {item.Id}, Name: {item.Name}, Price: {item.Price}");
+                            }
+                        }
+                        break;
+
+                    case "5":
                         continueShopping = false;
                         Console.WriteLine("Exiting Buyer Portal.");
                         break;
