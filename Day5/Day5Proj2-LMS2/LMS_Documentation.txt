@@ -1,0 +1,169 @@
+
+# Leave Management System (LMS) - Documentation
+
+## Overview
+The Leave Management System (LMS) allows employees to apply for leaves and lets the administrator manage these requests. It follows a clean layered architecture with separation of concerns between Entities, Interfaces, Application Services, and Infrastructure.
+
+---
+
+## 📁 Project Structure (from uploaded image)
+
+- **Lms.Core**
+  - **Entities**
+    - `Leave.cs` — Entity class representing a leave request.
+  - **Interfaces**
+    - `ILeaveRepository.cs` — Repository interface for performing CRUD operations on leaves.
+
+- **Lms.Application**
+  - **Services**
+    - `LeaveService.cs` — Business logic for leave operations.
+
+- **Lms.Infrastructure**
+  - **Repositories**
+    - `LeaveRepository.cs` — In-memory implementation of the repository.
+
+---
+
+## 🧱 Entities
+
+### Leave.cs
+```csharp
+public class Leave
+{
+    public int Id { get; set; }
+    public required string NameOfEmployee { get; set; }
+    public required string TypeOfLeave { get; set; }
+    public required string Status { get; set; }
+}
+```
+Represents a single leave request with basic properties like ID, employee name, leave type, and status.
+
+---
+
+## 🧩 Interfaces
+
+### ILeaveRepository.cs
+```csharp
+public interface ILeaveRepository
+{
+    void ApplyLeave(Leave leave);
+    void DeleteLeave(int id);
+    void UpdateLeave(int id, string status);
+    List<Leave> GetAll();
+    Leave GetById(int id);
+}
+```
+Defines the contract for any leave repository implementation. Supports basic CRUD operations.
+
+---
+
+## 🧠 Services
+
+### LeaveService.cs
+```csharp
+public class LeaveService 
+{
+    private readonly ILeaveRepository _repo;
+    public string Status { get; private set; }
+
+    public LeaveService(ILeaveRepository repo)
+    {
+        _repo = repo;
+    }
+
+    public void CreateLeave(string noe, string type)
+    {
+        var leave = new Leave
+        {
+            NameOfEmployee = noe, 
+            TypeOfLeave = type, 
+            Status = "Pending"
+        };
+        leave.Id = _repo.GetAll().Count + 1;
+        _repo.ApplyLeave(leave);
+        Console.WriteLine($"Leave Applied: {leave.TypeOfLeave}");
+    }
+
+    public List<Leave> GetAllLeaves()
+    {
+        Console.WriteLine("Fetching all Leave Details...");
+        return _repo.GetAll();
+    }
+
+    public void ApproveLeave() => Status = "Approved";
+    public void RejectLeave() => Status = "Rejected";
+}
+```
+Handles business logic like creating leaves and managing leave statuses.
+
+---
+
+## 🏗️ Infrastructure
+
+### LeaveRepository.cs
+```csharp
+public class LeaveRepository : ILeaveRepository
+{
+    private List<Leave> _leaves = new List<Leave>();
+
+    public void ApplyLeave(Leave leave)
+    {
+        _leaves.Add(leave);
+        Console.WriteLine($"Leave applied: {leave.TypeOfLeave}\n");
+    }
+
+    public void UpdateLeave(int id, string status)
+    {
+        var leave = _leaves.FirstOrDefault(l => l.Id == id);
+        leave.Status = status;
+    }
+
+    public void DeleteLeave(int id)
+    {
+        var leave = _leaves.FirstOrDefault(l => l.Id == id);
+        if (leave != null)
+        {
+            _leaves.Remove(leave);
+            Console.WriteLine($"Leave with ID {id} deleted.\n");
+        }
+        else
+        {
+            Console.WriteLine($"Leave with ID {id} not found.\n");
+        }
+    }
+
+    public List<Leave> GetAll() => _leaves;
+
+    public Leave GetById(int id) => _leaves.FirstOrDefault(l => l.Id == id);
+}
+```
+Stores leaves in an in-memory list. Can be replaced by database implementation later.
+
+---
+
+## ✅ Features
+
+- Apply for Leave
+- Approve or Reject Leave Requests
+- View All Leave Requests
+- Delete Leave Records
+- Repository Pattern Implementation
+
+---
+
+## 📌 Future Improvements
+
+- Add database support (EF Core or SQL)
+- Add user authentication
+- Implement unit testing
+- Create a frontend UI (ASP.NET or Angular/React)
+
+---
+
+## 🛠️ Requirements
+
+- .NET 6 or later
+- Visual Studio or VS Code
+
+## GitHub
+- https://github.com/adhnanjeff/Dotnet-Training/tree/main/Day5/Day5Proj2-LMS2
