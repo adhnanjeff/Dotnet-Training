@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SupportDeskProV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+807cc9bd480443d94794b2dcfa8f002e5cbe440c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53879e1f9ea6ac7514cd22e66effad275fef60d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("SupportDeskProV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SupportDeskProV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
