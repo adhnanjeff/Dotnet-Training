@@ -33,6 +33,7 @@ namespace Assessment2_BugTrackerLite {
             var selectedUser = users[index - 1];
             Console.Write("Enter ticket title: ");
             var title = Console.ReadLine();
+            Console.Write("Enter ticket description: ");
             var desc = Console.ReadLine();
             var ticket = new Ticket
             {
@@ -51,9 +52,13 @@ namespace Assessment2_BugTrackerLite {
 
         private static void CreateTagsAndTicketTags(AppDbContext context)
         {
+            Console.Write("Enter tag1: ");
+            var tag = Console.ReadLine();
+            Console.Write("Enter tag2: ");
+            var tag2 = Console.ReadLine();
             var tags = new[] {
-                new Tag { TagName = "Bug" },
-                new Tag { TagName = "UI" }
+                new Tag { TagName = tag },
+                new Tag { TagName = tag2 }
             };
 
             context.Tags.AddRange(tags);
