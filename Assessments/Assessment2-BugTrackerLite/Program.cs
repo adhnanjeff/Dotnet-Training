@@ -57,6 +57,7 @@ namespace Assessment2_BugTrackerLite
                         var desc = Console.ReadLine();
 
                         ticketService.CreateTicket(selectedUser.UserId, title, desc);
+                        // Assigning the ticket to the selected user is performed here
                         break;
 
                     case "3":
@@ -80,7 +81,7 @@ namespace Assessment2_BugTrackerLite
                         }
 
                         var selectedTicket = allTickets[ticketIndex - 1];
-
+                        // Assigning the tags to the selected tickets is performed here
                         Console.Write("Enter first tag: ");
                         var tag1 = Console.ReadLine();
                         Console.Write("Enter second tag: ");
