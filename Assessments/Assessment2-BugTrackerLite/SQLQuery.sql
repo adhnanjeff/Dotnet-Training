@@ -1,45 +1,45 @@
--- CREATE DATABASE BugTrackerLiteDB;
+CREATE DATABASE BugTrackerLiteDB;
 
 
--- USE BugTrackerLiteDB;
+USE BugTrackerLiteDB;
 
 
--- CREATE TABLE Users(
---     UserId INT IDENTITY(1,1) PRIMARY KEY,
---     UserName NVARCHAR(50) NOT NULL
--- );
+CREATE TABLE Users(
+    UserId INT IDENTITY(1,1) PRIMARY KEY,
+    UserName NVARCHAR(50) NOT NULL
+);
 
--- CREATE TABLE Tickets(
---     TicketId INT IDENTITY(1,1) PRIMARY KEY,
---     Title NVARCHAR(200) NOT NULL,
---     TicketDesc NVARCHAR(200) NOT NULL,
---     Status NVARCHAR(20) NOT NULL,
---     CreatedDate DATE,
---     UserId INT,
+CREATE TABLE Tickets(
+    TicketId INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(200) NOT NULL,
+    TicketDesc NVARCHAR(200) NOT NULL,
+    Status NVARCHAR(20) NOT NULL,
+    CreatedDate DATE,
+    UserId INT,
 
---     FOREIGN KEY (UserId) REFERENCES Users(UserId)
--- );
+    FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
 
--- CREATE TABLE Tags(
---     TagId INT IDENTITY(1,1) PRIMARY KEY,
---     TagName NVARCHAR(100) NOT NULL
--- );
+CREATE TABLE Tags(
+    TagId INT IDENTITY(1,1) PRIMARY KEY,
+    TagName NVARCHAR(100) NOT NULL
+);
 
--- CREATE TABLE TicketTags (
---     TicketId INT NOT NULL,
---     TagId INT NOT NULL,
---     PRIMARY KEY (TicketId, TagId),
---     FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE,
---     FOREIGN KEY (TagId) REFERENCES Tags(TagId) ON DELETE CASCADE
--- );
+CREATE TABLE TicketTags (
+    TicketId INT NOT NULL,
+    TagId INT NOT NULL,
+    PRIMARY KEY (TicketId, TagId),
+    FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE,
+    FOREIGN KEY (TagId) REFERENCES Tags(TagId) ON DELETE CASCADE
+);
 
 
 SELECT * FROM Users;
--- SELECT * FROM Tags;
--- SELECT * FROM Tickets;
--- SELECT * FROM TicketTags;
+SELECT * FROM Tags;
+SELECT * FROM Tickets;
+SELECT * FROM TicketTags;
 
--- INSERT INTO Users(UserName) VALUES ("Jeff");
+
 
 
 
