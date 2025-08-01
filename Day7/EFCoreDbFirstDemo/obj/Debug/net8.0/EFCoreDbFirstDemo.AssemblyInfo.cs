@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EFCoreDbFirstDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c4dce6364b81fe5b823deef8f835d16149945dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82912d23140ce6842431ffcb5598dc8056c54e52")]
 [assembly: System.Reflection.AssemblyProductAttribute("EFCoreDbFirstDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EFCoreDbFirstDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

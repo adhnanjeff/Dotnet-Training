@@ -15,3 +15,4 @@ CREATE TABLE Student (
 
     FOREIGN KEY (CourseId) REFERENCES Course(CourseId)
 );
+
