@@ -1,0 +1,12 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\bin\Debug\net9.0\BugStatisticsDashboard.Core.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\bin\Debug\net9.0\BugStatisticsDashboard.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\bin\Debug\net9.0\BugStatisticsDashboard.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\refint\BugStatisticsDashboard.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\BugStatisticsDashboard.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Core\obj\Debug\net9.0\ref\BugStatisticsDashboard.Core.dll

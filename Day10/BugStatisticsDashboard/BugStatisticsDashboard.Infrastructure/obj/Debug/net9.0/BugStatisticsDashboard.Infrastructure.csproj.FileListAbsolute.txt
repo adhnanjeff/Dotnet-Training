@@ -1,0 +1,16 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\bin\Debug\net9.0\BugStatisticsDashboard.Infrastructure.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\bin\Debug\net9.0\BugStatisticsDashboard.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\bin\Debug\net9.0\BugStatisticsDashboard.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\bin\Debug\net9.0\BugStatisticsDashboard.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\bin\Debug\net9.0\BugStatisticsDashboard.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStati.D831C8A4.Up2Date
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\refint\BugStatisticsDashboard.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\BugStatisticsDashboard.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Infrastructure\obj\Debug\net9.0\ref\BugStatisticsDashboard.Infrastructure.dll

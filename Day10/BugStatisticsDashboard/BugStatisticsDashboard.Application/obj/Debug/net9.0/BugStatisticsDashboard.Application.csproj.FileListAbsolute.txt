@@ -1,0 +1,16 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\bin\Debug\net9.0\BugStatisticsDashboard.Application.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\bin\Debug\net9.0\BugStatisticsDashboard.Application.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\bin\Debug\net9.0\BugStatisticsDashboard.Application.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\bin\Debug\net9.0\BugStatisticsDashboard.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\bin\Debug\net9.0\BugStatisticsDashboard.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.csproj.AssemblyReference.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStati.429F62F2.Up2Date
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\refint\BugStatisticsDashboard.Application.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\BugStatisticsDashboard.Application.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatisticsDashboard\BugStatisticsDashboard.Application\obj\Debug\net9.0\ref\BugStatisticsDashboard.Application.dll
