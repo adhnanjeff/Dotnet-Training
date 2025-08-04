@@ -72,7 +72,8 @@ namespace BugStatistics.Application.Services
         public void sortBugsByCreatedDate()
         {
             List<BugDTO> sortedBugs = _bugRepository.GetAll()
-                .OrderBy(b => b.CreatedAt)
+                .OrderBy(b => b.Status)
+                .ThenByDescending(b => b.CreatedAt)
                 .Select(b => new BugDTO
                 {
                     Title = b.Title,
