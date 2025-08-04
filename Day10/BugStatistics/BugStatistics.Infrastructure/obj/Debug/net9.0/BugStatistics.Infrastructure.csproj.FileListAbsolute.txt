@@ -1,0 +1,16 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\bin\Debug\net9.0\BugStatistics.Infrastructure.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\bin\Debug\net9.0\BugStatistics.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\bin\Debug\net9.0\BugStatistics.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\bin\Debug\net9.0\BugStatistics.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\bin\Debug\net9.0\BugStatistics.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStati.A434B036.Up2Date
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\refint\BugStatistics.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\BugStatistics.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.Infrastructure\obj\Debug\net9.0\ref\BugStatistics.Infrastructure.dll
