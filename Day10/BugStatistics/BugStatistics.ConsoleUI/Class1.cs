@@ -44,7 +44,6 @@ public class Class1
                     bugService.sortBugsByCreatedDate();
                     break;
                 case "4":
-                    Console.WriteLine("Grouped stats feature is not yet implemented.");
                     bugService.groupedStats();
                     break;
                 case "5":
