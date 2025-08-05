@@ -98,7 +98,8 @@ dotnet run
 ## 📸 Preview
 
 > Screenshot of console output:
-![Console Output](./your_console_output_image_here.png)
+![Console Output](<img width="287" height="629" alt="Screenshot 2025-08-05 125454" src="https://github.com/user-attachments/assets/5b2e6475-2ad5-46b4-8db3-3b3010e74397" />
+)
 
 ---
 
