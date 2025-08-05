@@ -1,8 +1,5 @@
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.ConsoleUI.exe
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.ConsoleUI.deps.json
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.ConsoleUI.runtimeconfig.json
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.ConsoleUI.dll
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.ConsoleUI.pdb
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.Application.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.Core.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\bin\Debug\net9.0\BugStatistics.Infrastructure.dll
@@ -15,9 +12,6 @@ C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.AssemblyInfo.cs
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.csproj.CoreCompileInputs.cache
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.sourcelink.json
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStati.91561DCC.Up2Date
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\refint\BugStatistics.ConsoleUI.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.pdb
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\BugStatistics.ConsoleUI.genruntimeconfig.cache
-C:\Users\adhnjeff\source\repos\DontnetTraining\Day10\BugStatistics\BugStatistics.ConsoleUI\obj\Debug\net9.0\ref\BugStatistics.ConsoleUI.dll

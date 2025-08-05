@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\bin\Debug\net8.0\BugTrackerGenericRepo.Core.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\bin\Debug\net8.0\BugTrackerGenericRepo.Core.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\bin\Debug\net8.0\BugTrackerGenericRepo.Core.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\bin\Debug\net8.0\BugTrackerGenericRepo.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\bin\Debug\net8.0\BugTrackerGenericRepo.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\refint\BugTrackerGenericRepo.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\BugTrackerGenericRepo.Core.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day11\BugTrackerGenericRepo\BugTrackerGenericRepo.Core\obj\Debug\net8.0\ref\BugTrackerGenericRepo.Core.dll

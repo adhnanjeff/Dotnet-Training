@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BugStatisticsDashboard.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b17f9b31340b7240ddc78644ce829e0143c32e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd98c08d92a34cc68f1684c978f33b06699e1851")]
 [assembly: System.Reflection.AssemblyProductAttribute("BugStatisticsDashboard.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BugStatisticsDashboard.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
