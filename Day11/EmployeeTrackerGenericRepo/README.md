@@ -105,5 +105,5 @@ dotnet run
 
 ## ✨ Credits
 
-Developed by [Your Name]  
+Developed by Adhnan Jeff M S
 .NET 6 | Clean Architecture | Console Development
