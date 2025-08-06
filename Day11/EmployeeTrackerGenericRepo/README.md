@@ -98,12 +98,12 @@ dotnet run
 ## 📸 Preview
 
 > Screenshot of console output:
-![Console Output](<img width="287" height="629" alt="Screenshot 2025-08-05 125454" src="https://github.com/user-attachments/assets/5b2e6475-2ad5-46b4-8db3-3b3010e74397" />
-)
+<img width="723" height="610" alt="image" src="https://github.com/user-attachments/assets/fa72c0f3-5323-4faf-82c0-e3e6b519163c" />
+
 
 ---
 
 ## ✨ Credits
 
-Developed by [Your Name]  
+Developed by Adhnan Jeff M S
 .NET 6 | Clean Architecture | Console Development
