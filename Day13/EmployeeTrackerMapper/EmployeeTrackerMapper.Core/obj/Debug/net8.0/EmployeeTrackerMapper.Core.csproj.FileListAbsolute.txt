@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\bin\Debug\net8.0\EmployeeTrackerMapper.Core.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\bin\Debug\net8.0\EmployeeTrackerMapper.Core.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\bin\Debug\net8.0\EmployeeTrackerMapper.Core.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\bin\Debug\net8.0\EmployeeTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\bin\Debug\net8.0\EmployeeTrackerMapper.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\refint\EmployeeTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\EmployeeTrackerMapper.Core.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\EmployeeTrackerMapper\EmployeeTrackerMapper.Core\obj\Debug\net8.0\ref\EmployeeTrackerMapper.Core.dll
