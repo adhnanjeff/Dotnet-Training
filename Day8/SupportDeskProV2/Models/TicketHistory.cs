@@ -5,13 +5,13 @@ namespace SupportDeskProV2.Models;
 
 public partial class TicketHistory
 {
-    public int TicketHistoryId { get; set; }
+    public int Id { get; set; }
 
     public int TicketId { get; set; }
 
-    public string? Action { get; set; }
+    public string? ActionTaken { get; set; }
 
-    public DateTime TimeStamp { get; set; }
+    public DateTime Timestamp { get; set; }
 
     public virtual Ticket Ticket { get; set; } = null!;
 }

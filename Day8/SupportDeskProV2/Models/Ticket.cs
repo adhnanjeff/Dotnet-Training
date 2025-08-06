@@ -5,7 +5,7 @@ namespace SupportDeskProV2.Models;
 
 public partial class Ticket
 {
-    public int TicketId { get; set; }
+    public int Id { get; set; }
 
     public string Title { get; set; } = null!;
 
@@ -13,7 +13,7 @@ public partial class Ticket
 
     public DateTime CreatedDate { get; set; }
 
-    public string Status { get; set; } = null!;
+    public string? Status { get; set; }
 
     public int CustomerId { get; set; }
 
@@ -21,10 +21,11 @@ public partial class Ticket
 
     public virtual Category Category { get; set; } = null!;
 
-    public virtual User Customer { get; set; } = null!;
+    public virtual Customer Customer { get; set; } = null!;
 
     public virtual ICollection<TicketHistory> TicketHistories { get; set; } = new List<TicketHistory>();
-    public virtual ICollection<TicketAssignment> TicketAssignment { get; set; } = new List<TicketAssignment>();
 
-    public virtual ICollection<User> SupportAgents { get; set; } = new List<User>();
+    public virtual ICollection<SupportAgent> SupportAgents { get; set; } = new List<SupportAgent>();
+    public virtual ICollection<TicketSupportAgent> TicketSupportAgents { get; set; } = new List<TicketSupportAgent>();
+
 }

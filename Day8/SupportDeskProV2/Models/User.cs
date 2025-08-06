@@ -5,21 +5,13 @@ namespace SupportDeskProV2.Models;
 
 public partial class User
 {
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
-    public string UserName { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
     public string Email { get; set; } = null!;
 
-    public string Role { get; set; } = null!;
+    public virtual Customer? Customer { get; set; }
 
-    public int? DepartmentId { get; set; }
-
-    public virtual CustomerProfile? CustomerProfile { get; set; }
-
-    public virtual Department? Department { get; set; }
-
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
-
-    public virtual ICollection<Ticket> TicketsNavigation { get; set; } = new List<Ticket>();
+    public virtual SupportAgent? SupportAgent { get; set; }
 }

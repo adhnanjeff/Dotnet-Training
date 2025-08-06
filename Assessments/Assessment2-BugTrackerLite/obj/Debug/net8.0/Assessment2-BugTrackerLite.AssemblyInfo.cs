@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Assessment2-BugTrackerLite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53879e1f9ea6ac7514cd22e66effad275fef60d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4acd028b3ed04cb59c0e377035960e5eb8960459")]
 [assembly: System.Reflection.AssemblyProductAttribute("Assessment2-BugTrackerLite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Assessment2-BugTrackerLite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

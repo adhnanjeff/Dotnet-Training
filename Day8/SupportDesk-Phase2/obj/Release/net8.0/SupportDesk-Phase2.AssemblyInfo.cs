@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SupportDesk-Phase2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96df37f5d3b01a0175afe2aff080c347ce8b5283")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b17f9b31340b7240ddc78644ce829e0143c32e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("SupportDesk-Phase2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SupportDesk-Phase2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,74 +1,81 @@
--- ================================================
--- 📦 Support Desk Database Schema - Full SQL File
--- ================================================
--- CREATE DATABASE SupportDeskPro;
+-- DROP DATABASE IF EXISTS SupportDeskPro;
+CREATE DATABASE SupportDeskPro;
 
--- USE SupportDeskPro;
--- 1. USERS
--- CREATE TABLE Users (
---     UserId INT PRIMARY KEY IDENTITY,
---     UserName NVARCHAR(100) NOT NULL,
---     Email NVARCHAR(100) NOT NULL,
---     Role NVARCHAR(20) NOT NULL, -- 'Customer' or 'SupportAgent'
---     DepartmentId INT NULL       -- FK to Departments (for agents)
--- );
+USE SupportDeskPro;
 
--- -- 2. CUSTOMER PROFILES (1-1 with Users)
--- CREATE TABLE CustomerProfiles (
---     UserId INT PRIMARY KEY, -- Also FK to Users
---     Address NVARCHAR(255),
---     Phone NVARCHAR(20),
---     FOREIGN KEY (UserId) REFERENCES Users(UserId) ON DELETE CASCADE
--- );
+-- Table: Users (Base Table)
+DROP TABLE Users;
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL
+);
 
--- -- 3. DEPARTMENTS
--- CREATE TABLE Departments (
---     DepartmentId INT PRIMARY KEY IDENTITY,
---     DepartmentName NVARCHAR(100) NOT NULL
--- );
+-- Table: Customers (Extends Users)
+CREATE TABLE Customers (
+    Id INT PRIMARY KEY,
+    FOREIGN KEY (Id) REFERENCES Users(Id)
+);
 
--- -- FK: Users.DepartmentId → Departments
--- ALTER TABLE Users
--- ADD CONSTRAINT FK_Users_Department
---     FOREIGN KEY (DepartmentId) REFERENCES Departments(DepartmentId);
+-- Table: SupportAgents (Extends Users)
+DROP TABLE SupportAgents;
+CREATE TABLE SupportAgents (
+    Id INT PRIMARY KEY,
+    DepartmentId INT NULL,
+    FOREIGN KEY (Id) REFERENCES Users(Id),
+    FOREIGN KEY (DepartmentId) REFERENCES Departments(Id)
+);
 
--- -- 4. CATEGORIES
--- CREATE TABLE Categories (
---     CategoryId INT PRIMARY KEY IDENTITY,
---     CategoryName NVARCHAR(100) NOT NULL
--- );
+-- Table: Departments
+DROP TABLE Departments;
+CREATE TABLE Departments (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100) NOT NULL
+);
 
--- -- 5. TICKETS
--- CREATE TABLE Tickets (
---     TicketId INT PRIMARY KEY IDENTITY,
---     Title NVARCHAR(200) NOT NULL,
---     Description NVARCHAR(MAX),
---     CreatedDate DATETIME NOT NULL DEFAULT GETDATE(),
---     Status NVARCHAR(50) NOT NULL,
---     CustomerId INT NOT NULL,
---     CategoryId INT NOT NULL,
+-- Table: CustomerProfiles (1-1 with Customers)
+CREATE TABLE CustomerProfiles (
+    Id INT PRIMARY KEY,
+    Address NVARCHAR(200),
+    Phone NVARCHAR(20),
+    FOREIGN KEY (Id) REFERENCES Customers(Id)
+);
 
---     FOREIGN KEY (CustomerId) REFERENCES Users(UserId) ON DELETE CASCADE,
---     FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
--- );
+-- Table: Categories
+CREATE TABLE Categories (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100) NOT NULL
+);
 
--- 6. TICKET ↔ SUPPORTAGENT (M-M)
--- CREATE TABLE TicketAssignments (
---     TicketId INT NOT NULL,
---     SupportAgentId INT NOT NULL,
---     PRIMARY KEY (TicketId, SupportAgentId),
---     FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE,
---     FOREIGN KEY (SupportAgentId) REFERENCES Users(UserId) 
--- );
+-- Table: Tickets
+CREATE TABLE Tickets (
+    Id INT PRIMARY KEY IDENTITY,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(MAX),
+    CreatedDate DATETIME NOT NULL DEFAULT GETDATE(),
+    Status NVARCHAR(50),
+    CustomerId INT NOT NULL,
+    CategoryId INT NOT NULL,
+    FOREIGN KEY (CustomerId) REFERENCES Customers(Id),
+    FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+);
 
--- -- 7. TICKET HISTORY (1-M with Tickets)
--- CREATE TABLE TicketHistories (
---     TicketHistoryId INT PRIMARY KEY IDENTITY,
---     TicketId INT NOT NULL,
---     Action NVARCHAR(500),
---     TimeStamp DATETIME NOT NULL DEFAULT GETDATE(),
+-- Table: TicketHistories (1-M with Tickets)
+CREATE TABLE TicketHistories (
+    Id INT PRIMARY KEY IDENTITY,
+    TicketId INT NOT NULL,
+    ActionTaken NVARCHAR(200),
+    Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
+    FOREIGN KEY (TicketId) REFERENCES Tickets(Id) ON DELETE CASCADE
+);
 
---     FOREIGN KEY (TicketId) REFERENCES Tickets(TicketId) ON DELETE CASCADE
--- );
+-- Table: TicketSupportAgent (Join table for M-M)
+CREATE TABLE TicketSupportAgent (
+    TicketId INT NOT NULL,
+    SupportAgentId INT NOT NULL,
+    PRIMARY KEY (TicketId, SupportAgentId),
+    FOREIGN KEY (TicketId) REFERENCES Tickets(Id),
+    FOREIGN KEY (SupportAgentId) REFERENCES SupportAgents(Id)
+);
 
--- ✅ All tables and relationships created successfully.
+SELECT * FROM Tickets;

@@ -5,11 +5,11 @@ namespace SupportDeskProV2.Models;
 
 public partial class CustomerProfile
 {
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
     public string? Address { get; set; }
 
     public string? Phone { get; set; }
 
-    public virtual User User { get; set; } = null!;
+    public virtual Customer IdNavigation { get; set; } = null!;
 }

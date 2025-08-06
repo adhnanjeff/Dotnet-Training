@@ -5,9 +5,9 @@ namespace SupportDeskProV2.Models;
 
 public partial class Department
 {
-    public int DepartmentId { get; set; }
+    public int Id { get; set; }
 
-    public string DepartmentName { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public virtual ICollection<SupportAgent> SupportAgents { get; set; } = new List<SupportAgent>();
 }

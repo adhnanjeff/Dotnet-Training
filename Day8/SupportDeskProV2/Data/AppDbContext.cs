@@ -1,17 +1,15 @@
+using System;
+
 using Microsoft.EntityFrameworkCore;
 using SupportDeskProV2.Models;
-
 namespace SupportDeskProV2.Data
 {
     public class AppDbContext : DbContext
     {
         public DbSet<User> Users => Set<User>();
         public DbSet<Ticket> Tickets => Set<Ticket>();
-        public DbSet<Category> Categories => Set<Category>();
-        public DbSet<TicketHistory> TicketHistories => Set<TicketHistory>();
-        public DbSet<CustomerProfile> CustomerProfiles => Set<CustomerProfile>();
-        public DbSet<Department> Departments => Set<Department>();
-        public DbSet<TicketAssignment> TicketAssignments => Set<TicketAssignment>();
+        public DbSet<Tag> Tags => Set<Tag>();
+        public DbSet<TicketTag> TicketSupportAgents => Set<TicketTag>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,21 +18,18 @@ namespace SupportDeskProV2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // TicketAssignment (many-to-many User <-> Ticket)
-            modelBuilder.Entity<TicketAssignment>(entity =>
-            {
-                entity.HasKey(ta => new { ta.TicketId, ta.SupportAgentId });
+            modelBuilder.Entity<TicketSupportAgent>()
+                .HasKey(tsa => new { tsa.TicketId, tsa.SupportAgentId });
 
-                entity.HasOne(ta => ta.Ticket)
-                    .WithMany(t => t.TicketAssignment)
-                    .HasForeignKey(ta => ta.TicketId)
-                    .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<TicketSupportAgent>()
+                .HasOne(tsa => tsa.Ticket)
+                .WithMany(t => t.TicketSupportAgents)
+                .HasForeignKey(tsa => tsa.TicketId);
 
-                entity.HasOne(ta => ta.SupportAgent)
-                    .WithMany(u => u.UserId)
-                    .HasForeignKey(ta => ta.SupportAgentId)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+            modelBuilder.Entity<TicketSupportAgent>()
+                .HasOne(tsa => tsa.SupportAgent)
+                .WithMany(sa => sa.TicketSupportAgents)
+                .HasForeignKey(tsa => tsa.SupportAgentId);
         }
     }
 }
