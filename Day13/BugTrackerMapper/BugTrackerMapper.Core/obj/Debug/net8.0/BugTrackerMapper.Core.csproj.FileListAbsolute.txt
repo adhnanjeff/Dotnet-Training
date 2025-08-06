@@ -1,0 +1,15 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\bin\Debug\net8.0\BugTrackerMapper.Core.exe
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\bin\Debug\net8.0\BugTrackerMapper.Core.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\bin\Debug\net8.0\BugTrackerMapper.Core.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\bin\Debug\net8.0\BugTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\bin\Debug\net8.0\BugTrackerMapper.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\refint\BugTrackerMapper.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\BugTrackerMapper.Core.genruntimeconfig.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day13\BugTrackerMapper\BugTrackerMapper.Core\obj\Debug\net8.0\ref\BugTrackerMapper.Core.dll
