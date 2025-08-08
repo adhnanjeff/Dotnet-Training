@@ -1,3 +1,24 @@
+# Cooked Code
+public class EventService : IEventService
+{
+    private readonly IEventRepository _eventRepo;
+
+    public EventService(IEventRepository eventRepo)
+    {
+        _eventRepo = eventRepo;
+    }
+
+    public Event CreateEvent(Event newEvent)
+    {
+        if (string.IsNullOrWhiteSpace(newEvent.Title) || newEvent.Title.Length < 3)
+            throw new Exception("Invalid title: must be at least 3 characters long.");
+
+        _eventRepo.Add(newEvent); // Adds the event to the repository
+        return newEvent;          // Returns the added event
+    }
+}
+
+
 1️⃣ Create the Project
 ```bash
 
