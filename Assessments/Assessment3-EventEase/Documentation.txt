@@ -1,0 +1,677 @@
+1️⃣ Create the Project
+```bash
+
+# Create a new solution
+dotnet new sln -n Assessment3-EventEase
+
+# Create the Web API project
+dotnet new webapi -n EventEase.API
+
+# Create the Application (Services) project
+dotnet new classlib -n EventEase.Application
+
+# Create the Core (Entities/Interfaces/DTOs) project
+dotnet new classlib -n EventEase.Core
+
+# Create the Infrastructure (Repositories) project
+dotnet new classlib -n EventEase.Infrastructure
+
+2️⃣ File Structure
+```bash
+
+Assessments/
+│
+├── Assessment3-EventEase.sln
+│
+├── EventEase.API/               # API Layer
+│   ├── Controllers/
+│   │   ├── ReistratisController.cs
+│   │   ├── EventController.cs
+│   │   └── UserController.cs
+│   ├── Program.cs
+│   ├── appsettings.json
+│   └── EventManagementSystem.API.csproj
+│
+├── EventEase.Core/              # Core Layer
+│   ├── DTOs/
+│   │   ├── RegistrationResponseDTO.cs
+│   │   ├── EventRequestDTO.cs
+│   │   ├── EventResponseDTO.cs
+│   │   ├── UserResponseDTO.cs
+│   │   ├── UserRequestDTO.cs
+│   ├── Entities/
+│   │   ├── Registration.cs
+│   │   ├── Event.cs
+│   │   ├── User.cs
+│   ├── Interfaces/
+│   │   ├── IEventRepository.cs
+│   │   ├── IUserRepository.cs
+│   └── EventEase.Core.csproj
+│
+├── EventEase.Infrastructure/    # Infrastructure Layer
+│   ├── Repositories/
+│   │   ├── EventRepository.cs
+│   │   ├── UserRepository.cs
+│   │   ├── RegistrationRepository.cs
+│   └── EventEase.Infrastructure.csproj
+
+3️⃣ Add Project References
+```bash
+
+# Add Core to API
+dotnet add EventEase.API/EventEase.API.csproj reference EventEase.Core/EventEase.Core.csproj
+
+# Add Infrastructure to API
+dotnet add EventEase.API/EventEase.API.csproj reference EventEase.Infrastructure/EventEase.Infrastructure.csproj
+
+# Add Core to Infrastructure
+dotnet add EventEase.Infrastructure/EventEase.Infrastructure.csproj reference EventEase.Core/EventEase.Core.csproj
+
+# Add all projects to the solution
+dotnet sln EventManagementSystem.sln add EventEase.API/EventEase.API.csproj
+dotnet sln EventManagementSystem.sln add EventEase.Application/EventEase.Application.csproj
+dotnet sln EventManagementSystem.sln add EventEase.Core/EventEase.Core.csproj
+dotnet sln EventManagementSystem.sln add EventEase.Infrastructure/EventEase.Infrastructure.csproj
+
+# Codes
+
+using EventEase.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class EventController : ControllerBase
+    {
+        private static readonly List<Event> Events = new List<Event>
+    {
+        new Event
+        {
+            Id = 1,
+            Title = "Beach Volleyball Tournament",
+            Description = "A fun-filled beach volleyball tournament with prizes for the winners.",
+            EventDate = new DateOnly(2025, 8, 15),
+            Location = "Marina Beach"
+        },
+        new Event
+        {
+            Id = 2,
+            Title = "Food Festival",
+            Description = "Taste cuisines from all around the world in one place.",
+            EventDate = new DateOnly(2025, 9, 5),
+            Location = "City Central Park"
+        },
+        new Event
+        {
+            Id = 3,
+            Title = "Music Concert",
+            Description = "Live performances from top artists and bands.",
+            EventDate = new DateOnly(2025, 10, 20),
+            Location = "Downtown Arena"
+        }
+    };
+
+        private readonly ILogger<EventController> _logger;
+
+        public EventController(ILogger<EventController> logger)
+        {
+            _logger = logger;
+        }
+
+        // GET: /Event
+        [HttpGet]
+        public ActionResult<IEnumerable<Event>> GetAllEvents()
+        {
+            return Ok(Events);
+        }
+
+        // GET: /Event/{id}
+        [HttpGet("{id}")]
+        public ActionResult<Event> GetEventById(int id)
+        {
+            var ev = Events.FirstOrDefault(e => e.Id == id);
+            if (ev == null)
+            {
+                return NotFound(new { Message = $"Event with ID {id} not found." });
+            }
+            return Ok(ev);
+        }
+    }
+}
+
+using EventEase.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class RegistrationController : ControllerBase
+    {
+        private static readonly List<User> Users = new List<User>
+    {
+        new User { Id = 1, Name = "Adhnan", Email = "adhnan@example.com" },
+        new User { Id = 2, Name = "Subashini", Email = "subashini@example.com" },
+        new User { Id = 3, Name = "Sivadarsini", Email = "sivadarsini@example.com" },
+        new User { Id = 4, Name = "Ahalya", Email = "ahalya@example.com" },
+        new User { Id = 5, Name = "Amrith", Email = "amrith@example.com" }
+    };
+
+        private static readonly List<Event> Events = new List<Event>
+    {
+        new Event { Id = 1, Title = "Beach Volleyball Tournament", Description = "A fun-filled beach volleyball tournament with prizes for the winners.", EventDate = new DateOnly(2025, 8, 15), Location = "Marina Beach" },
+        new Event { Id = 2, Title = "Food Festival", Description = "Taste cuisines from all around the world in one place.", EventDate = new DateOnly(2025, 9, 5), Location = "City Central Park" },
+        new Event { Id = 3, Title = "Music Concert", Description = "Live performances from top artists and bands.", EventDate = new DateOnly(2025, 10, 20), Location = "Downtown Arena" }
+    };
+
+        private static readonly Dictionary<int, List<int>> EventRegistrations = new Dictionary<int, List<int>>
+    {
+        { 1, new List<int> { 1, 2, 3 } },  // Adhnan, Subashini, Sivadarsini
+        { 2, new List<int> { 5 } },       // Amrith
+        { 3, new List<int> { 4 } }       // Ahalya
+    };
+
+        private readonly ILogger<RegistrationController> _logger;
+
+        public RegistrationController(ILogger<RegistrationController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet("all-events-with-users")]
+        public ActionResult<IEnumerable<object>> GetAllEventsWithUsers()
+        {
+            var result = Events.Select(e => new
+            {
+                EventId = e.Id,
+                Title = e.Title,
+                Description = e.Description,
+                EventDate = e.EventDate,
+                Location = e.Location,
+                Users = EventRegistrations.ContainsKey(e.Id)
+                    ? Users.Where(u => EventRegistrations[e.Id].Contains(u.Id)).ToList()
+                    : new List<User>()
+            }).ToList();
+
+            return Ok(result);
+        }
+
+
+        [HttpGet("event/{eventId}")]
+        public ActionResult<IEnumerable<User>> GetUsersByEventId(int eventId)
+        {
+            if (!EventRegistrations.ContainsKey(eventId))
+            {
+                return NotFound(new { Message = $"No registrations found for Event ID {eventId}." });
+            }
+
+            var userIds = EventRegistrations[eventId];
+            var registeredUsers = Users.Where(u => userIds.Contains(u.Id)).ToList();
+
+            return Ok(registeredUsers);
+        }
+    }
+}
+
+using EventEase.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.API.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class UserController : ControllerBase
+    {
+        private static readonly List<User> Users = new List<User>
+        {
+        new User { Id = 1, Name = "Adhnan", Email = "adhnan@example.com" },
+        new User { Id = 2, Name = "Subashini", Email = "subashini@example.com" },
+        new User { Id = 3, Name = "Sivadarsini", Email = "sivadarsini@example.com" },
+        new User { Id = 4, Name = "Ahalya", Email = "ahalya@example.com" },
+        new User { Id = 5, Name = "Amrith", Email = "amrith@example.com" }
+        };
+
+        private readonly ILogger<UserController> _logger;
+
+        public UserController(ILogger<UserController> logger)
+        {
+            _logger = logger;
+        }
+
+        // GET: /User
+        [HttpGet]
+        public ActionResult<IEnumerable<User>> GetAllUsers()
+        {
+            return Ok(Users);
+        }
+
+        // GET: /User/{id}
+        [HttpGet("{id}")]
+        public ActionResult<User> GetUserById(int id)
+        {
+            var user = Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(new { Message = $"User with ID {id} not found." });
+            }
+            return Ok(user);
+        }
+    }
+}
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+
+namespace EventEase.Application.Services
+{
+    public class EventService : IEventService
+    {
+        private readonly IEventRepository _eventRepository;
+
+        public EventService(IEventRepository eventRepository)
+        {
+            _eventRepository = eventRepository;
+        }
+
+        public void AddEvent(Event e)
+        {
+            _eventRepository.Add(e);
+        }
+
+        public void UpdateEvent(Event e)
+        {
+            _eventRepository.Update(e);
+        }
+
+        public void DeleteEvent(int id)
+        {
+            _eventRepository.Delete(id);
+        }
+
+        public List<Event> GetAllEvents()
+        {
+            return _eventRepository.GetAll();
+        }
+
+        public Event? GetEventById(int id)
+        {
+            return _eventRepository.GetById(id);
+        }
+    }
+}
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+using EventEase.Infrastructure.Repositories;
+
+namespace EventEase.Application.Services
+{
+    public class RegistrationService : IRegistrationService
+    {
+        private readonly RegistrationRepository _registrationRepository;
+        private readonly IUserService _userService;
+        private readonly IEventService _eventService;
+
+        public RegistrationService(RegistrationRepository registrationRepository, IUserService userService, IEventService eventService)
+        {
+            _registrationRepository = registrationRepository;
+            _userService = userService;
+            _eventService = eventService;
+        }
+
+        public void AddRegistration(Registration registration)
+        {
+            var eventExists = _eventService.GetEventById(registration.EventId);
+            if (eventExists == null)
+                throw new Exception($"Event with ID {registration.EventId} does not exist.");
+
+            var userExists = _userService.GetUserById(registration.UserId);
+            if (userExists == null)
+                throw new Exception($"User with ID {registration.UserId} does not exist.");
+
+            var alreadyRegistered = _registrationRepository
+                .GetAll()
+                .Any(r => r.EventId == registration.EventId && r.UserId == registration.UserId);
+
+            if (alreadyRegistered)
+                throw new Exception("User is already registered for this event.");
+
+            _registrationRepository.Add(registration);
+        }
+
+        public List<Registration> GetAllRegistrations()
+        {
+            return _registrationRepository.GetAll();
+        }
+
+        public List<User> GetUsersWithEventId(int eventId)
+        {
+            var userIds = _registrationRepository
+                .GetAll()
+                .Where(r => r.EventId == eventId)
+                .Select(r => r.UserId)
+                .ToList();
+
+            return _userService.GetAllUsers()
+                               .Where(u => userIds.Contains(u.Id))
+                               .ToList();
+        }
+    }
+}
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+
+
+namespace EventEase.Application.Services
+{
+    public class UserServices : IUserService
+    {
+        private readonly IUserRepository _userService;
+
+        public UserServices(IUserRepository user)
+        {
+            _userService = user;
+        }
+        public void AddUser(User e)
+        {
+            _userService.Add(e);
+        }
+
+        public void UpdateUser(User e)
+        {
+            _userService.Update(e);
+        }
+
+        public void DeleteUser(int id)
+        {
+            _userService.Delete(id);
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return _userService.GetAll();
+        }
+
+        public User GetUserById(int id)
+        {
+            return _userService.GetById(id);
+        }
+    }
+}
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class EventRepository : IEventRepository
+    {
+        private readonly List<Event> _events = new();
+
+        public void Add(Event e) { 
+            _events.Add(e);
+        }
+
+        public void Update(Event e) { 
+            var existingEvent = GetById(e.Id);
+            if (existingEvent != null) { 
+                existingEvent.Title = e.Title;
+                existingEvent.Description = e.Description;
+                existingEvent.EventDate = e.EventDate;
+                existingEvent.Location = e.Location;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var deleteEvent = GetById(id);
+            if (deleteEvent != null) {
+                _events.Remove(deleteEvent);
+            }
+        }
+        public Event? GetById(int id) => _events.FirstOrDefault(e => e.Id == id);
+
+        public List<Event> GetAll() => _events;
+    }
+}
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class RegistrationRepository 
+    {
+        private readonly List<Registration> _register = new();
+
+        public void Add(Registration reg)
+        {
+            _register.Add(reg);
+        }
+
+        public Registration? GetById(int id) => _register.FirstOrDefault(r => r.Id == id);
+
+        public List<Registration> GetAll() => _register;
+    }
+}
+
+
+using EventEase.Core.Entities;
+using EventEase.Core.Interfaces;
+
+namespace EventEase.Infrastructure.Repositories
+{
+    public class UserRepository : IUserRepository
+    {
+        private readonly List<User> _user = new();
+
+        public void Add(User user)
+        {
+            _user.Add(user);
+        }
+
+        public void Delete(int id)
+        {
+            var user = GetById(id);
+            if (user != null)
+            {
+                _user.Remove(user);
+            }
+        }
+
+        public void Update(User user)
+        {
+            var existingUser = GetById(user.Id);
+            if (existingUser != null) { 
+                existingUser.Name = user.Name;
+                existingUser.Email = user.Email;
+            }
+        }
+
+        public User? GetById(int id) => _user.FirstOrDefault(u => u.Id == id);
+
+        public List<User> GetAll() => _user;
+        
+    }
+}
+
+namespace EventEase.Core.DTOs
+{
+    public class EventRequestDTO
+    {
+        public required string Title { get; set; }
+        public required string Desc { get; set; }
+        public required DateOnly EventDate { get; set; }
+        public required string Location { get; set; }
+    }
+}
+
+
+namespace EventEase.Core.DTOs
+{
+    public class EventResponseDTO
+    {
+        public required string Title { get; set; }
+        public required string Desc { get; set; }
+        public required DateOnly EventDate { get; set; }
+        public required string Location { get; set; }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EventEase.Core.DTOs
+{
+    public class RegisterationResponseDTO
+    {
+        public int UserId { get; set; }
+        public int EventId { get; set; }
+        public DateOnly DateTime { get; set; }
+    }
+}
+
+
+namespace EventEase.Core.DTOs
+{
+    public class UserRequestDTO
+    {
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+    }
+}
+
+
+namespace EventEase.Core.DTOs
+{
+    public class UserResponseDTO
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+    }
+}
+Followign are entities
+
+
+namespace EventEase.Core.Entities
+{
+    public class Event
+    {
+        public int Id { get; set; }
+        public required string Title { get; set; }
+        public required string Description { get; set; }
+        public required DateOnly EventDate { get; set; }
+        public required string Location { get; set; }
+
+    }
+}
+
+
+namespace EventEase.Core.Entities
+{
+    public class Registration
+    {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int EventId { get; set; }
+        public required DateOnly RegDate { get; set; }
+    }
+}
+
+
+namespace EventEase.Core.Entities
+{
+    public class User
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+    }
+}
+Following are interfaces
+
+using EventEase.Core.Entities;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IEventRepository : IRepository<Event>
+    {
+    }
+}
+
+
+using EventEase.Core.Entities;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IEventService
+    {
+        void AddEvent(Event e);
+        void UpdateEvent(Event e);
+        void DeleteEvent(int id);
+        List<Event> GetAllEvents();
+        Event? GetEventById(int id);
+    }
+}using EventEase.Core.Entities;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IRegistrationService
+    {
+        void AddRegistration(Registration registration);
+        List<Registration> GetAllRegistrations();
+        List<User> GetUsersWithEventId(int eventId);
+    }
+}
+
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IRepository<T> where T : class
+    {
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(int id);
+        T? GetById(int id);
+        List<T> GetAll();
+    }
+}
+
+
+using EventEase.Core.Entities;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IUserRepository : IRepository<User>
+    {
+    }
+}
+
+
+using EventEase.Core.Entities;
+
+namespace EventEase.Core.Interfaces
+{
+    public interface IUserService
+    {
+        void AddUser(User e);
+        void UpdateUser(User e);
+        void DeleteUser(int id);
+        List<User> GetAllUsers();
+        User GetUserById(int id);
+    }
+}
+
+
+4️⃣ Git Commands
+```bash
+
+# Add all files
+git add .
+
+# Commit changes
+git commit -m "Initial commit - Event Management System with API, Core, and Infrastructure"
+
+# Push to remote 
+git push origin main
