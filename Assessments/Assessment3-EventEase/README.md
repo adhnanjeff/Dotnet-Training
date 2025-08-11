@@ -110,9 +110,9 @@ https://localhost:{port}/swagger
 `GET /User/{id}`  
 
 **Output:**  
-```
+
 <img width="1186" height="771" alt="image" src="https://github.com/user-attachments/assets/61ddc679-f222-4935-b0d5-2fb8a4426261" />
-```
+
 
 ---
 
@@ -121,7 +121,7 @@ https://localhost:{port}/swagger
 `GET /User`  
 
 **Output:**  
-```
+
 <img width="1175" height="605" alt="image" src="https://github.com/user-attachments/assets/d107489e-3161-489e-abbb-fb395f75bf46" />
 ```
 
@@ -132,7 +132,7 @@ https://localhost:{port}/swagger
 `GET /Event/{id}`  
 
 **Output:**  
-```
+
 <img width="1191" height="860" alt="image" src="https://github.com/user-attachments/assets/66b6d8c9-9ef3-45c7-b968-36d473a535d7" />
 
 ```
@@ -144,10 +144,9 @@ https://localhost:{port}/swagger
 `GET /Event`  
 
 **Output:**  
-```
+
 <img width="1745" height="652" alt="image" src="https://github.com/user-attachments/assets/123badac-9db5-477f-8b78-89bfd4f80a83" />
 
-```
 
 ---
 
@@ -156,10 +155,8 @@ https://localhost:{port}/swagger
 `GET /Registration/event/{eventId}`  
 
 **Output:**  
-```
-<img width="1187" height="901" alt="image" src="https://github.com/user-attachments/assets/fdf56a2b-331c-4602-9d66-c47704107462" />
 
-```
+<img width="1187" height="901" alt="image" src="https://github.com/user-attachments/assets/fdf56a2b-331c-4602-9d66-c47704107462" />
 
 ---
 
@@ -168,12 +165,11 @@ https://localhost:{port}/swagger
 `GET /Registration/all-events-with-users`  
 
 **Output:**  
-```
+
 <img width="1185" height="433" alt="image" src="https://github.com/user-attachments/assets/33109f50-3758-4e1f-ae86-d4121ae931e3" />
 
 <img width="1197" height="554" alt="image" src="https://github.com/user-attachments/assets/2413c566-faf7-4a96-a5c9-5c02b1a34b27" />
 
-```
 
 ---
 
