@@ -1,6 +1,6 @@
-﻿using Hostel.Application.Services;
-using Hostel.Core.DTOs;
+﻿using Hostel.Core.DTOs;
 using Hostel.Core.Entities;
+using Hostel.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hostel.API.Controllers
@@ -9,9 +9,9 @@ namespace Hostel.API.Controllers
     [Route("api/[controller]")]
     public class StaffController : ControllerBase
     {
-        private readonly StaffService _staffService;
+        private readonly IStaffService _staffService;
 
-        public StaffController(StaffService staffService)
+        public StaffController(IStaffService staffService)
         {
             _staffService = staffService;
         }
@@ -19,7 +19,8 @@ namespace Hostel.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_staffService.GetAllStaff());
+
+            return Ok(_staffService.GetAllStaffs());
         }
 
         [HttpGet("{id}")]
@@ -33,19 +34,17 @@ namespace Hostel.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Staff staff)
+        public IActionResult Create([FromBody] StaffRequestDTO staffRequestDTO)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            
 
-            var staffDto = new StaffRequestDTO
+            var staffDto = new Staff
             {
-                Name = staff.Name,
-                RoomIds = staff.RoomIds
+                Name = staffRequestDTO.Name,
             };
 
-            _staffService.CreateStaff(staffDto);
-            return CreatedAtAction(nameof(GetById), new { id = staff.Id }, staff);
+            _staffService.CreateStaff(staffRequestDTO);
+            return CreatedAtAction(nameof(GetById), new { id = staffDto.Id }, staffDto);
         }
     }
 }

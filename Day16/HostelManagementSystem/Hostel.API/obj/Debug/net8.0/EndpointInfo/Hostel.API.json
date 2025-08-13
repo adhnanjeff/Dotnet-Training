@@ -69,29 +69,6 @@
         }
       }
     },
-    "/api/Room/{id}/details": {
-      "get": {
-        "tags": [
-          "Room"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Staff": {
       "get": {
         "tags": [
@@ -111,17 +88,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Staff"
+                "$ref": "#/components/schemas/StaffRequestDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Staff"
+                "$ref": "#/components/schemas/StaffRequestDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Staff"
+                "$ref": "#/components/schemas/StaffRequestDTO"
               }
             }
           }
@@ -175,17 +152,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/StudentRequestDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/StudentRequestDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/StudentRequestDTO"
               }
             }
           }
@@ -262,94 +239,32 @@
   },
   "components": {
     "schemas": {
-      "Room": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "staffId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "staff": {
-            "$ref": "#/components/schemas/Staff"
-          },
-          "students": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Student"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "RoomRequestDTO": {
         "type": "object",
-        "properties": {
-          "staffId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "studentIds": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          }
-        },
         "additionalProperties": false
       },
-      "Staff": {
+      "StaffRequestDTO": {
         "required": [
           "name"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "name": {
             "type": "string",
-            "nullable": true
-          },
-          "roomIds": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "Student": {
+      "StudentRequestDTO": {
         "required": [
           "name"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "name": {
             "type": "string",
             "nullable": true
-          },
-          "roomId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "room": {
-            "$ref": "#/components/schemas/Room"
           }
         },
         "additionalProperties": false

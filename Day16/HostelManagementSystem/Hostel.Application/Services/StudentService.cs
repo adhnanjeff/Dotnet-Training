@@ -6,23 +6,45 @@ namespace Hostel.Application.Services
 {
     public class StudentService : IStudentService
     {
-        private readonly IRepository<Student> _studentRepo;
-        private int _idCounter = 1;
+        private readonly IStudentRepository _studentRepo;
+        private readonly IRoomRepository _roomRepo;
 
-        public StudentService(IRepository<Student> studentRepo)
+        public StudentService(IStudentRepository studentRepo, IRoomRepository roomRepo)
         {
             _studentRepo = studentRepo;
+            _roomRepo = roomRepo;
         }
 
         public void CreateStudent(StudentRequestDTO studentDto)
         {
+            // Find first available room with < 2 students
+            var availableRoom = _roomRepo
+                .GetAll()
+                .FirstOrDefault(r => r.Students.Count < 2);
+
+            if (availableRoom == null)
+                throw new ArgumentException("No available room for this student.");
+
+            // Generate new ID
+            int nextId = _studentRepo.GetAll().Any()
+                ? _studentRepo.GetAll().Max(s => s.Id) + 1
+                : 1;
+
             var student = new Student
             {
-                Id = _idCounter++,
-                Name = studentDto.Name
+                Id = nextId,
+                Name = studentDto.Name,
+                RoomId = availableRoom.Id
             };
+
+            // Add student to room entity
+            availableRoom.Students.Add(student);
+
+            // Save to repositories
             _studentRepo.Create(student);
+            //_roomRepo.Update(availableRoom);
         }
+
 
         public StudentResponseDTO GetStudentById(int id)
         {

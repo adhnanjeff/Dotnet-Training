@@ -1,8 +1,9 @@
 ﻿using Hostel.Core.Entities;
+using Hostel.Core.Interfaces;
 
 namespace Hostel.Infrastructure.Repositories
 {
-    public class StudentRepository
+    public class StudentRepository : IStudentRepository
     {
         private readonly List<Student> _students = new();
         public void Create(Student room) => _students.Add(room);

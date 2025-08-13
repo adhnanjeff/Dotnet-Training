@@ -1,73 +1,57 @@
 ﻿using Hostel.Core.DTOs;
 using Hostel.Core.Entities;
 using Hostel.Core.Interfaces;
+using Hostel.Infrastructure.Repositories;
 
 namespace Hostel.Application.Services
 {
     public class StaffService : IStaffService
     {
-        private readonly IRepository<Staff> _staffRepo;
-        private int _idCounter = 1;
+        private readonly IStaffRepository _staffRepo;
 
-        public StaffService(IRepository<Staff> staffRepo)
+        public StaffService(IStaffRepository staffRepository)
         {
-            _staffRepo = staffRepo;
+            _staffRepo = staffRepository;
         }
 
         public void CreateStaff(StaffRequestDTO staffDto)
         {
             if (staffDto == null || string.IsNullOrWhiteSpace(staffDto.Name))
                 throw new ArgumentException("Invalid staff data.");
+            int nextId = _staffRepo.GetAll().Any()
+                ? _staffRepo.GetAll().Max(r => r.Id) + 1
+                : 1;
 
             var staff = new Staff
             {
-                Id = _idCounter++,
-                Name = staffDto.Name
+                Id = nextId,
+                Name = staffDto.Name,
+                Rooms = new List<Room>() 
             };
             _staffRepo.Create(staff);
         }
 
-        public StaffResponseDTO? GetStaffById(int id)
+        public StaffResponseDTO GetStaffById(int id)
         {
             var staff = _staffRepo.GetById(id);
-            if (staff == null)
-                return null;
-
             return new StaffResponseDTO
             {
-                Id = staff.Id,
-                Name = staff.Name,
-                RoomIds = staff.RoomIds ?? new List<int>()
+                Id = id,
+                Name = staff.Name
             };
         }
 
-        public List<StaffResponseDTO> GetAllStaff()
+        public List<StaffResponseDTO> GetAllStaffs()
         {
-            return _staffRepo.GetAll()
+            List<Staff> staffs = _staffRepo.GetAll();
+
+            return staffs
                 .Select(s => new StaffResponseDTO
                 {
                     Id = s.Id,
-                    Name = s.Name,
-                    RoomIds = s.RoomIds ?? new List<int>()
+                    Name = s.Name
                 })
                 .ToList();
-        }
-
-        public bool AssignRoomToStaff(int staffId, int roomId)
-        {
-            var staff = _staffRepo.GetById(staffId);
-            if (staff == null)
-                return false;
-
-            if (staff.RoomIds == null)
-                staff.RoomIds = new List<int>();
-
-            if (staff.RoomIds.Count < 2)
-            {
-                staff.RoomIds.Add(roomId);
-                return true;
-            }
-            return false;
         }
     }
 }

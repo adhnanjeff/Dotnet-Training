@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BugTrack.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4365bef5f8026005d224de1ca2cfd459d9e6219")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4c2192d914309cf1e134e47b823cb087c68142e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BugTrack.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BugTrack.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

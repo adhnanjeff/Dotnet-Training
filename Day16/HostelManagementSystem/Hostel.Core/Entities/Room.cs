@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public int StaffId { get; set; }
         public Staff Staff { get; set; } = null!;
-        public List<Student> Students { get; set; } = new();
+        public ICollection<Student> Students { get; set; }
     }
 }

@@ -6,7 +6,6 @@ namespace Hostel.Core.Interfaces
     {
         void CreateStaff(StaffRequestDTO staffDto);
         StaffResponseDTO GetStaffById(int id);
-        List<StaffResponseDTO> GetAllStaff();
-        bool AssignRoomToStaff(int staffId, int roomId);
+        List<StaffResponseDTO> GetAllStaffs();
     }
 }

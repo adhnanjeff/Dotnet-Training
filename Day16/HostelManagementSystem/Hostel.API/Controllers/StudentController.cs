@@ -1,6 +1,6 @@
-﻿using Hostel.Application.Services;
-using Hostel.Core.DTOs;
+﻿using Hostel.Core.DTOs;
 using Hostel.Core.Entities;
+using Hostel.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hostel.API.Controllers
@@ -9,9 +9,9 @@ namespace Hostel.API.Controllers
     [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly StudentService _studentService;
+        private readonly IStudentService _studentService;
 
-        public StudentController(StudentService studentService)
+        public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
@@ -33,19 +33,12 @@ namespace Hostel.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Student student)
+        public IActionResult Create([FromBody] StudentRequestDTO student)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            _studentService.CreateStudent(student);
 
-            var studentDto = new StudentRequestDTO
-            {
-                Name = student.Name,
-                RoomId = student.RoomId
-            };
-
-            _studentService.CreateStudent(studentDto);
-            return CreatedAtAction(nameof(GetById), new { id = student.Id }, student);
+            return StatusCode(StatusCodes.Status201Created,
+                new { message = "Student created successfully" });
         }
     }
 }
