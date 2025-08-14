@@ -1,0 +1,12 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\bin\Debug\net8.0\BankPro.Core.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\bin\Debug\net8.0\BankPro.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\bin\Debug\net8.0\BankPro.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\refint\BankPro.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\BankPro.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Core\obj\Debug\net8.0\ref\BankPro.Core.dll

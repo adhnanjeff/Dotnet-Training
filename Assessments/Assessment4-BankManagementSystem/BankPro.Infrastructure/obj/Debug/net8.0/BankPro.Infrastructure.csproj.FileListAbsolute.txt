@@ -1,0 +1,16 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\bin\Debug\net8.0\BankPro.Infrastructure.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\bin\Debug\net8.0\BankPro.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\bin\Debug\net8.0\BankPro.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\bin\Debug\net8.0\BankPro.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\bin\Debug\net8.0\BankPro.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro..53058198.Up2Date
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\refint\BankPro.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\BankPro.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.Infrastructure\obj\Debug\net8.0\ref\BankPro.Infrastructure.dll
