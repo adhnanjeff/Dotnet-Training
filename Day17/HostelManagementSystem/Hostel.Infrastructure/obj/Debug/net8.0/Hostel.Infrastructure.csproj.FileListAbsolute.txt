@@ -1,0 +1,16 @@
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\bin\Debug\net8.0\Hostel.Infrastructure.deps.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\bin\Debug\net8.0\Hostel.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\bin\Debug\net8.0\Hostel.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\bin\Debug\net8.0\Hostel.Core.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\bin\Debug\net8.0\Hostel.Core.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.AssemblyInfo.cs
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.sourcelink.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.I.B855C015.Up2Date
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\refint\Hostel.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\Hostel.Infrastructure.pdb
+C:\Users\adhnjeff\source\repos\DontnetTraining\Day16\HostelManagementSystem\Hostel.Infrastructure\obj\Debug\net8.0\ref\Hostel.Infrastructure.dll
