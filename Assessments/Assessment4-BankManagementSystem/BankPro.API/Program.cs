@@ -1,11 +1,13 @@
+using AutoMapper;
 using BankPro.Application.Services;
 using BankPro.Core.Interfaces;
+using BankPro.Application.Mapping;
 using BankPro.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

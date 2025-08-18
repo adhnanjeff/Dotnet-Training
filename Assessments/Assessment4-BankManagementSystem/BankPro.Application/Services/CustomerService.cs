@@ -1,4 +1,5 @@
-﻿using BankPro.Core.DTOs;
+﻿using AutoMapper;
+using BankPro.Core.DTOs;
 using BankPro.Core.Entities;
 using BankPro.Core.Interfaces;
 
@@ -7,10 +8,12 @@ namespace BankPro.Application.Services
     public class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepo;
+        private readonly IMapper _mapper;
 
-        public CustomerService(ICustomerRepository customerRepository)
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepo = customerRepository;
+            _mapper = mapper;
         }
 
         public async Task CreateCustomerAsync(CustomerRequestDTO customer)
@@ -23,12 +26,9 @@ namespace BankPro.Application.Services
                 ? customers.Max(r => r.Id) + 1
                 : 1;
 
-            var newCustomer = new Customer
-            {
-                Id = nextId,
-                Name = customer.Name,
-                Accounts = new List<Account>()
-            };
+            var newCustomer = _mapper.Map<Customer>(customer);
+            newCustomer.Id = nextId;
+            newCustomer.Accounts = new List<Account>();
 
             await _customerRepo.CreateAsync(newCustomer);
         }
@@ -42,7 +42,8 @@ namespace BankPro.Application.Services
             if (existingCustomer == null)
                 throw new InvalidOperationException("Customer not found.");
 
-            existingCustomer.Name = customer.Name;
+            _mapper.Map(customer, existingCustomer);
+
             await _customerRepo.UpdateAsync(existingCustomer);
         }
 
@@ -66,12 +67,7 @@ namespace BankPro.Application.Services
             if (customer == null)
                 return null;
 
-            return new CustomerResponseDTO
-            {
-                Id = customer.Id,
-                Name = customer.Name,
-                Accounts = customer.Accounts
-            };
+            return _mapper.Map<CustomerResponseDTO>(customer);
         }
 
         public async Task<List<CustomerResponseDTO>> GetAllCustomersAsync()
@@ -80,12 +76,7 @@ namespace BankPro.Application.Services
             if (customers == null || !customers.Any())
                 throw new Exception("No customers to display");
 
-            return customers.Select(c => new CustomerResponseDTO
-            {
-                Id = c.Id,
-                Name = c.Name,
-                Accounts = c.Accounts
-            }).ToList();
+            return _mapper.Map<List<CustomerResponseDTO>>(customers);
         }
     }
 }

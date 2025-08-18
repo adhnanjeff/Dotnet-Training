@@ -40,3 +40,5 @@ C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManag
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.API\obj\Debug\net8.0\BankPro.API.genruntimeconfig.cache
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.API\obj\Debug\net8.0\ref\BankPro.API.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.API\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment4-BankManagementSystem\BankPro.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

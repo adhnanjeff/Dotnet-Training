@@ -1,4 +1,5 @@
-﻿using BankPro.Application.Services;
+﻿using AutoMapper;
+using BankPro.Application.Services;
 using BankPro.Core.DTOs;
 using BankPro.Core.Entities;
 using BankPro.Core.Interfaces;
@@ -9,27 +10,30 @@ namespace BankPro.Test.Services
     public class CustomerServiceTest
     {
         private readonly Mock<ICustomerRepository> _customerRepoMock;
+        private readonly Mock<IMapper> _mapperMock;
         private readonly CustomerService _service;
 
         public CustomerServiceTest()
         {
             _customerRepoMock = new Mock<ICustomerRepository>();
-            _service = new CustomerService(_customerRepoMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _service = new CustomerService(_customerRepoMock.Object, _mapperMock.Object);
         }
 
+
         [Fact]
-        public void CreateCustomer_Should_Create_New_Customer()
+        public async Task CreateCustomer_Should_Create_New_Customer()
         {
             // Arrange
             var dto = new CustomerRequestDTO { Name = "Jeff" };
-            _customerRepoMock.Setup(r => r.GetAll())
-                             .Returns(new List<Customer>());
+            _customerRepoMock.Setup(r => r.GetAllAsync())
+                             .ReturnsAsync(new List<Customer>());
 
             // Act
-            _service.CreateCustomer(dto);
+            await _service.CreateCustomerAsync(dto);
 
             // Assert
-            _customerRepoMock.Verify(r => r.Create(It.Is<Customer>(c =>
+            _customerRepoMock.Verify(r => r.CreateAsync(It.Is<Customer>(c =>
                 c.Name == "Jeff" &&
                 c.Id == 1 &&
                 c.Accounts.Count == 0
@@ -37,39 +41,39 @@ namespace BankPro.Test.Services
         }
 
         [Fact]
-        public void UpdateCustomer_Should_Update_Existing_Customer()
+        public async Task UpdateCustomer_Should_Update_Existing_Customer()
         {
             // Arrange
             var existingCustomer = new Customer { Id = 1, Name = "Old Name" };
             var updatedDto = new CustomerRequestDTO { Name = "New Name" };
 
-            _customerRepoMock.Setup(r => r.GetById(1))
-                             .Returns(existingCustomer);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(1))
+                             .ReturnsAsync(existingCustomer);
 
             // Act
-            _service.UpdateCustomer(1, updatedDto);
+            await _service.UpdateCustomerAsync(1, updatedDto);
 
             // Assert
-            _customerRepoMock.Verify(r => r.Update(It.Is<Customer>(c =>
+            _customerRepoMock.Verify(r => r.UpdateAsync(It.Is<Customer>(c =>
                 c.Id == 1 &&
                 c.Name == "New Name"
             )), Times.Once);
         }
 
         [Fact]
-        public void UpdateCustomer_Should_Throw_When_Customer_Not_Found()
+        public async Task UpdateCustomer_Should_Throw_When_Customer_Not_Found()
         {
             // Arrange
-            _customerRepoMock.Setup(r => r.GetById(99))
-                             .Returns((Customer)null);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(99))
+                             .ReturnsAsync((Customer)null);
 
             // Act & Assert
-            Assert.Throws<InvalidOperationException>(() =>
-                _service.UpdateCustomer(99, new CustomerRequestDTO { Name = "X" }));
+            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
+                await _service.UpdateCustomerAsync(99, new CustomerRequestDTO { Name = "X" }));
         }
 
         [Fact]
-        public void DeleteCustomer_Should_Delete_When_Found()
+        public async Task DeleteCustomer_Should_Delete_When_Found()
         {
             // Arrange
             var customer = new Customer
@@ -78,30 +82,31 @@ namespace BankPro.Test.Services
                 Name = "Jeff",
                 Accounts = new List<Account> { new Account { Id = 10 } }
             };
-            _customerRepoMock.Setup(r => r.GetById(1))
-                             .Returns(customer);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(1))
+                             .ReturnsAsync(customer);
 
             // Act
-            _service.DeleteCustomer(1);
+            await _service.DeleteCustomerAsync(1);
 
             // Assert
-            _customerRepoMock.Verify(r => r.Delete(1), Times.Once);
+            _customerRepoMock.Verify(r => r.DeleteAsync(1), Times.Once);
             Assert.Empty(customer.Accounts);
         }
 
         [Fact]
-        public void DeleteCustomer_Should_Throw_When_Not_Found()
+        public async Task DeleteCustomer_Should_Throw_When_Not_Found()
         {
             // Arrange
-            _customerRepoMock.Setup(r => r.GetById(1))
-                             .Returns((Customer)null);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(1))
+                             .ReturnsAsync((Customer)null);
 
             // Act & Assert
-            Assert.Throws<Exception>(() => _service.DeleteCustomer(1));
+            await Assert.ThrowsAsync<Exception>(async () =>
+                await _service.DeleteCustomerAsync(1));
         }
 
         [Fact]
-        public void GetCustomerById_Should_Return_CustomerResponseDTO()
+        public async Task GetCustomerById_Should_Return_CustomerResponseDTO()
         {
             // Arrange
             var customer = new Customer
@@ -110,11 +115,11 @@ namespace BankPro.Test.Services
                 Name = "Adhnan",
                 Accounts = new List<Account>()
             };
-            _customerRepoMock.Setup(r => r.GetById(1))
-                             .Returns(customer);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(1))
+                             .ReturnsAsync(customer);
 
             // Act
-            var result = _service.GetCustomerById(1);
+            var result = await _service.GetCustomerByIdAsync(1);
 
             // Assert
             Assert.Equal(1, result.Id);
@@ -122,18 +127,19 @@ namespace BankPro.Test.Services
         }
 
         [Fact]
-        public void GetCustomerById_Should_Throw_When_Not_Found()
+        public async Task GetCustomerById_Should_Throw_When_Not_Found()
         {
             // Arrange
-            _customerRepoMock.Setup(r => r.GetById(1))
-                             .Returns((Customer)null);
+            _customerRepoMock.Setup(r => r.GetByIdAsync(1))
+                             .ReturnsAsync((Customer)null);
 
             // Act & Assert
-            Assert.Throws<Exception>(() => _service.GetCustomerById(1));
+            await Assert.ThrowsAsync<Exception>(async () =>
+                await _service.GetCustomerByIdAsync(1));
         }
 
         [Fact]
-        public void GetAllCustomers_Should_Return_List()
+        public async Task GetAllCustomers_Should_Return_List()
         {
             // Arrange
             var customers = new List<Customer>
@@ -141,11 +147,11 @@ namespace BankPro.Test.Services
                 new Customer { Id = 1, Name = "A", Accounts = new List<Account>() },
                 new Customer { Id = 2, Name = "B", Accounts = new List<Account>() }
             };
-            _customerRepoMock.Setup(r => r.GetAll())
-                             .Returns(customers);
+            _customerRepoMock.Setup(r => r.GetAllAsync())
+                             .ReturnsAsync(customers);
 
             // Act
-            var result = _service.GetAllCustomers();
+            var result = await _service.GetAllCustomersAsync();
 
             // Assert
             Assert.Equal(2, result.Count);
@@ -153,14 +159,15 @@ namespace BankPro.Test.Services
         }
 
         [Fact]
-        public void GetAllCustomers_Should_Throw_When_Null()
+        public async Task GetAllCustomers_Should_Throw_When_Null()
         {
             // Arrange
-            _customerRepoMock.Setup(r => r.GetAll())
-                             .Returns((List<Customer>)null);
+            _customerRepoMock.Setup(r => r.GetAllAsync())
+                             .ReturnsAsync((List<Customer>)null);
 
             // Act & Assert
-            Assert.Throws<Exception>(() => _service.GetAllCustomers());
+            await Assert.ThrowsAsync<Exception>(async () =>
+                await _service.GetAllCustomersAsync());
         }
     }
 }
