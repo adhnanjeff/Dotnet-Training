@@ -1,13 +1,11 @@
-﻿
-
-using BankPro.Core.DTOs;
+﻿using BankPro.Core.DTOs;
 
 namespace BankPro.Core.Interfaces
 {
     public interface ITransactionService
     {
-        void PerformTransaction(TransactionRequestDTO transaction);
-        TransactionResponseDTO GetTransactionById(Guid transactionId);
-        List<TransactionResponseDTO> GetAllTransactions();
+        Task PerformTransactionAsync(TransactionRequestDTO transaction);
+        Task<TransactionResponseDTO?> GetTransactionByIdAsync(Guid transactionId);
+        Task<List<TransactionResponseDTO>> GetAllTransactionsAsync();
     }
 }

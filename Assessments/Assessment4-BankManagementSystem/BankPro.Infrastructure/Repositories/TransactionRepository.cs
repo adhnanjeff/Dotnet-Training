@@ -6,8 +6,20 @@ namespace BankPro.Infrastructure.Repositories
     public class TransactionRepository : ITransactionRepository
     {
         private readonly List<Transaction> _transactions = new();
-        public void Create(Transaction transaction) => _transactions.Add(transaction);
-        public Transaction? GetById(Guid id) => _transactions.FirstOrDefault(t => t.TransactionId == id);
-        public List<Transaction> GetAll() => _transactions;
+
+        public Task CreateAsync(Transaction transaction)
+        {
+            _transactions.Add(transaction);
+            return Task.CompletedTask;
+        }
+
+        public Task<Transaction?> GetByIdAsync(Guid id)
+        {
+            var transaction = _transactions.FirstOrDefault(t => t.TransactionId == id);
+            return Task.FromResult(transaction);
+        }
+
+        public Task<List<Transaction>> GetAllAsync() => Task.FromResult(_transactions.ToList());
+        
     }
 }

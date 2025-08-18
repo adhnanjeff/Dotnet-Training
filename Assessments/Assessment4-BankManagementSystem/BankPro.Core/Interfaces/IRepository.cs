@@ -1,13 +1,12 @@
 ﻿
-
 namespace BankPro.Core.Interfaces
 {
-    public interface IRepository <T> where T : class
+    public interface IRepository<T> where T : class
     {
-        void Create(T entity);
-        void Update(T entity);
-        void Delete(int Id);
-        T? GetById(int Id);
-        List<T> GetAll();
+        Task CreateAsync(T entity);           
+        Task UpdateAsync(T entity);           
+        Task DeleteAsync(int id);             
+        Task<T?> GetByIdAsync(int id);        
+        Task<List<T>> GetAllAsync();          
     }
 }

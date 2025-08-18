@@ -1,11 +1,11 @@
-﻿using BankPro.Core.Entities; 
+﻿using BankPro.Core.Entities;
 
 namespace BankPro.Core.Interfaces
 {
     public interface ITransactionRepository
     {
-        void Create(Transaction transaction);
-        List<Transaction> GetAll();
-        Transaction? GetById(Guid id);
+        Task CreateAsync(Transaction transaction);              
+        Task<List<Transaction>> GetAllAsync();                  
+        Task<Transaction?> GetByIdAsync(Guid id);               
     }
 }

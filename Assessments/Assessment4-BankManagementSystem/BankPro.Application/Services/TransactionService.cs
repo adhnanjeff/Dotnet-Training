@@ -8,19 +8,22 @@ namespace BankPro.Application.Services
     {
         private readonly ITransactionRepository _transactionRepo;
         private readonly IAccountRepository _accountRepo;
-        public TransactionService(ITransactionRepository transactionRepo, IAccountRepository accountRepo) { 
+
+        public TransactionService(ITransactionRepository transactionRepo, IAccountRepository accountRepo)
+        {
             _transactionRepo = transactionRepo;
             _accountRepo = accountRepo;
         }
-        public void PerformTransaction(TransactionRequestDTO transactionRequestDTO)
+
+        public async Task PerformTransactionAsync(TransactionRequestDTO transactionRequestDTO)
         {
             if (transactionRequestDTO == null)
             {
                 throw new ArgumentNullException(nameof(transactionRequestDTO));
             }
 
-            var fromAccount = _accountRepo.GetById(transactionRequestDTO.FromAccId);
-            var toAccount = _accountRepo.GetById(transactionRequestDTO.ToAccId);
+            var fromAccount = await _accountRepo.GetByIdAsync(transactionRequestDTO.FromAccId);
+            var toAccount = await _accountRepo.GetByIdAsync(transactionRequestDTO.ToAccId);
 
             if (fromAccount == null || toAccount == null)
             {
@@ -35,8 +38,8 @@ namespace BankPro.Application.Services
             fromAccount.BankBalance -= transactionRequestDTO.Amount;
             toAccount.BankBalance += transactionRequestDTO.Amount;
 
-            _accountRepo.Update(fromAccount);
-            _accountRepo.Update(toAccount);
+            await _accountRepo.UpdateAsync(fromAccount);
+            await _accountRepo.UpdateAsync(toAccount);
 
             var transaction = new Transaction
             {
@@ -45,12 +48,15 @@ namespace BankPro.Application.Services
                 Amount = transactionRequestDTO.Amount,
                 Status = "Success"
             };
-            _transactionRepo.Create(transaction);
+
+            await _transactionRepo.CreateAsync(transaction);
         }
 
-        public TransactionResponseDTO GetTransactionById(Guid id)
+        public async Task<TransactionResponseDTO?> GetTransactionByIdAsync(Guid id)
         {
-            var transaction = _transactionRepo.GetById(id);
+            var transaction = await _transactionRepo.GetByIdAsync(id);
+            if (transaction == null) return null;
+
             return new TransactionResponseDTO
             {
                 TransactionId = transaction.TransactionId,
@@ -61,9 +67,9 @@ namespace BankPro.Application.Services
             };
         }
 
-        public List<TransactionResponseDTO> GetAllTransactions()
+        public async Task<List<TransactionResponseDTO>> GetAllTransactionsAsync()
         {
-            List<Transaction> transactions = _transactionRepo.GetAll();
+            var transactions = await _transactionRepo.GetAllAsync();
 
             return transactions
                 .Select(t => new TransactionResponseDTO

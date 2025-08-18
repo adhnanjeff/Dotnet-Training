@@ -4,10 +4,10 @@ namespace BankPro.Core.Interfaces
 {
     public interface IAccountService
     {
-        void CreateAccount(AccountRequestDTO account);
-        void UpdateAccount(int id, AccountRequestDTO account);
-        void DeleteAccount(int id);
-        AccountResponseDTO GetAccountById(int id);
-        List<AccountResponseDTO> GetAllAccount();
+        Task CreateAccountAsync(AccountRequestDTO account);
+        Task UpdateAccountAsync(int id, AccountRequestDTO account);
+        Task DeleteAccountAsync(int id);
+        Task<AccountResponseDTO?> GetAccountByIdAsync(int id);
+        Task<List<AccountResponseDTO>> GetAllAccountsAsync();
     }
 }

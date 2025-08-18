@@ -17,11 +17,11 @@ namespace BankPro.API.Controllers
 
         // GET: api/Account/{id}
         [HttpGet("{id}")]
-        public IActionResult GetAccountById(int id)
+        public async Task<IActionResult> GetAccountById(int id)
         {
             try
             {
-                var account = _accountService.GetAccountById(id);
+                var account = await _accountService.GetAccountByIdAsync(id);
                 return Ok(account);
             }
             catch (Exception ex)
@@ -32,11 +32,11 @@ namespace BankPro.API.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public IActionResult GetAllAccounts()
+        public async Task<IActionResult> GetAllAccounts()
         {
             try
             {
-                var accounts = _accountService.GetAllAccount();
+                var accounts = await _accountService.GetAllAccountsAsync();
                 return Ok(accounts);
             }
             catch (Exception ex)
@@ -47,11 +47,11 @@ namespace BankPro.API.Controllers
 
         // POST: api/Account
         [HttpPost]
-        public IActionResult CreateAccount([FromBody] AccountRequestDTO account)
+        public async Task<IActionResult> CreateAccount([FromBody] AccountRequestDTO account)
         {
             try
             {
-                _accountService.CreateAccount(account);
+                await _accountService.CreateAccountAsync(account);
                 return Ok(new { message = "Account created successfully." });
             }
             catch (Exception ex)
@@ -62,11 +62,11 @@ namespace BankPro.API.Controllers
 
         // PUT: api/Account/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateAccount(int id, [FromBody] AccountRequestDTO account)
+        public async Task<IActionResult> UpdateAccount(int id, [FromBody] AccountRequestDTO account)
         {
             try
             {
-                _accountService.UpdateAccount(id, account);
+                await _accountService.UpdateAccountAsync(id, account);
                 return Ok(new { message = "Account updated successfully." });
             }
             catch (Exception ex)
@@ -77,11 +77,11 @@ namespace BankPro.API.Controllers
 
         // DELETE: api/Account/{id}
         [HttpDelete("{id}")]
-        public IActionResult DeleteAccount(int id)
+        public async Task<IActionResult> DeleteAccount(int id)
         {
             try
             {
-                _accountService.DeleteAccount(id);
+                await _accountService.DeleteAccountAsync(id);
                 return Ok(new { message = "Account deleted successfully." });
             }
             catch (Exception ex)

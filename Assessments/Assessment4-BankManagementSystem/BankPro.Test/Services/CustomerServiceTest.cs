@@ -107,7 +107,7 @@ namespace BankPro.Test.Services
             var customer = new Customer
             {
                 Id = 1,
-                Name = "Jane",
+                Name = "Adhnan",
                 Accounts = new List<Account>()
             };
             _customerRepoMock.Setup(r => r.GetById(1))
@@ -118,7 +118,7 @@ namespace BankPro.Test.Services
 
             // Assert
             Assert.Equal(1, result.Id);
-            Assert.Equal("Jane", result.Name);
+            Assert.Equal("Adhnan", result.Name);
         }
 
         [Fact]

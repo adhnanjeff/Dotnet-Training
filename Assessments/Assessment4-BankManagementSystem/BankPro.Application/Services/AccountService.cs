@@ -15,15 +15,16 @@ namespace BankPro.Application.Services
             _customerRepo = customerRepo;
         }
 
-        public void CreateAccount(AccountRequestDTO account)
+        public async Task CreateAccountAsync(AccountRequestDTO account)
         {
             if (account == null)
             {
                 throw new ArgumentNullException(nameof(account));
             }
 
-            int nextId = _accountRepo.GetAll().Any()
-                ? _accountRepo.GetAll().Max(r => r.Id) + 1
+            var allAccounts = await _accountRepo.GetAllAsync();
+            int nextId = allAccounts.Any()
+                ? allAccounts.Max(r => r.Id) + 1
                 : 1;
 
             var newAccount = new Account
@@ -33,20 +34,26 @@ namespace BankPro.Application.Services
                 BankBalance = account.BankBalance,
                 Transactions = new List<Transaction>()
             };
-            var user = _customerRepo.GetById(account.AccHolderId);
+
+            var user = await _customerRepo.GetByIdAsync(account.AccHolderId);
+            if (user == null)
+            {
+                throw new Exception($"Customer with Id {account.AccHolderId} not found.");
+            }
+
             user.Accounts.Add(newAccount);
 
-            _accountRepo.Create(newAccount);
+            await _accountRepo.CreateAsync(newAccount);
         }
 
-        public void UpdateAccount(int id, AccountRequestDTO account)
+        public async Task UpdateAccountAsync(int id, AccountRequestDTO account)
         {
             if (account == null)
             {
                 throw new ArgumentNullException(nameof(account));
             }
 
-            var existingAccount = _accountRepo.GetById(id);
+            var existingAccount = await _accountRepo.GetByIdAsync(id);
             if (existingAccount == null)
             {
                 throw new Exception("No account with the provided Id.");
@@ -55,15 +62,15 @@ namespace BankPro.Application.Services
             existingAccount.BankBalance = account.BankBalance;
             existingAccount.AccHolderId = account.AccHolderId;
 
-            _accountRepo.Update(existingAccount);
+            await _accountRepo.UpdateAsync(existingAccount);
         }
 
-        public void DeleteAccount(int id)
+        public async Task DeleteAccountAsync(int id)
         {
-            var deleteAccount = _accountRepo.GetById(id);
+            var deleteAccount = await _accountRepo.GetByIdAsync(id);
             if (deleteAccount != null)
             {
-                _accountRepo.Delete(id);
+                await _accountRepo.DeleteAsync(id);
             }
             else
             {
@@ -71,9 +78,9 @@ namespace BankPro.Application.Services
             }
         }
 
-        public AccountResponseDTO GetAccountById(int id)
+        public async Task<AccountResponseDTO> GetAccountByIdAsync(int id)
         {
-            var account = _accountRepo.GetById(id);
+            var account = await _accountRepo.GetByIdAsync(id);
             if (account == null)
             {
                 throw new Exception("No account with the provided Id.");
@@ -88,9 +95,9 @@ namespace BankPro.Application.Services
             };
         }
 
-        public List<AccountResponseDTO> GetAllAccount()
+        public async Task<List<AccountResponseDTO>> GetAllAccountsAsync()
         {
-            var accounts = _accountRepo.GetAll();
+            var accounts = await _accountRepo.GetAllAsync();
 
             return accounts.Select(t => new AccountResponseDTO
             {

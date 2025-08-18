@@ -17,11 +17,11 @@ namespace BankPro.API.Controllers
 
         // POST: api/Transaction
         [HttpPost]
-        public IActionResult PerformTransaction([FromBody] TransactionRequestDTO transactionRequest)
+        public async Task<IActionResult> PerformTransaction([FromBody] TransactionRequestDTO transactionRequest)
         {
             try
             {
-                _transactionService.PerformTransaction(transactionRequest);
+                await _transactionService.PerformTransactionAsync(transactionRequest);
                 return Ok(new { Message = "Transaction completed successfully" });
             }
             catch (ArgumentNullException ex)
@@ -40,11 +40,11 @@ namespace BankPro.API.Controllers
 
         // GET: api/Transaction/{id}
         [HttpGet("{id}")]
-        public IActionResult GetTransactionById(Guid id)
+        public async Task<IActionResult> GetTransactionById(Guid id)
         {
             try
             {
-                var transaction = _transactionService.GetTransactionById(id);
+                var transaction = await _transactionService.GetTransactionByIdAsync(id);
                 if (transaction == null)
                     return NotFound("Transaction not found");
 
@@ -58,11 +58,11 @@ namespace BankPro.API.Controllers
 
         // GET: api/Transaction
         [HttpGet]
-        public IActionResult GetAllTransactions()
+        public async Task<IActionResult> GetAllTransactions()
         {
             try
             {
-                var transactions = _transactionService.GetAllTransactions();
+                var transactions = await _transactionService.GetAllTransactionsAsync();
                 return Ok(transactions);
             }
             catch (Exception ex)
