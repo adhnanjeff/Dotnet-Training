@@ -1,0 +1,376 @@
+## Cooked Solution
+
+public async Task TransferMoneyAsync(string fromAcc, string toAcc, decimal amount) {
+    var sender = await _accountRepo.GetByAccountNumberAsync(fromAcc);
+    var receiver = await _accountRepo.GetByAccountNumberAsync(toAcc);
+
+    if (sender == null || receiver == null)
+        throw new Exception("One or both accounts not found");
+
+    if (sender.Balance < amount)
+        throw new Exception("Insufficient funds");
+
+    sender.Balance -= amount;
+    receiver.Balance += amount;
+
+    await _accountRepo.UpdateAsync(sender);
+    await _accountRepo.UpdateAsync(receiver);
+}
+
+-----------------------------------------------------------------------------
+
+🔑 Fixes applied:
+Changed method name → TransferMoneyAsync (async convention).
+
+Added await for repository calls.
+
+Added null checks for sender and receiver.
+
+Awaited UpdateAsync so changes persist.
+
+Balance validation kept.
+
+-----------------------------------------------------------------------------
+
+🏦 BankPro – Bank Management System (In-Memory)
+-----------------------------------------------------------------------------
+
+📌 Overview
+BankPro is a lightweight Bank Management System built on .NET 8 Web API that uses in-memory collections instead of a real database. It demonstrates core software engineering concepts such as Repository Pattern, Service Layer, AutoMapper, Dependency Injection, Async/Await handling, Unit Testing, and RESTful API design.
+
+The system manages Customers, Accounts, and Transactions with business rules like account creation, money transfer, and transaction history tracking.
+All APIs are exposed via Swagger UI.
+
+-----------------------------------------------------------------------------
+
+🎯 Objectives
+Manage Customers and their Accounts.
+
+Support money transfers between accounts with balance validation.
+
+Maintain transaction history for audit and tracking.
+
+Implement repository pattern with in-memory collections.
+
+Provide Swagger-based interactive documentation and testing.
+
+-----------------------------------------------------------------------------
+
+⚙️ Architecture
+Entities: Customer, Account, Transaction
+
+DTOs: Request/Response models for API communication
+
+Repositories: In-memory implementations for CRUD (List<T> as data store)
+
+Services: Business logic layer (validation, transfer, mapping)
+
+AutoMapper: Mapping between DTOs ↔ Entities
+
+Controllers: RESTful APIs exposed via Swagger
+
+Unit Tests: xUnit + Moq for service and repository testing
+
+-----------------------------------------------------------------------------
+
+🔑 Features
+👥 Customer Management
+Create Customer (POST /api/Customer)
+
+Get All Customers (GET /api/Customer)
+
+Get Customer by ID (GET /api/Customer/{id})
+
+Update Customer (PUT /api/Customer/{id})
+
+Delete Customer (DELETE /api/Customer/{id})
+
+-----------------------------------------------------------------------------
+
+💳 Account Management
+Create Account for a Customer (POST /api/Account)
+
+Get All Accounts (GET /api/Account)
+
+Get Account by ID (GET /api/Account/{id})
+
+Update Account (PUT /api/Account/{id})
+
+Delete Account (DELETE /api/Account/{id})
+
+-----------------------------------------------------------------------------
+
+💸 Transaction Management
+Perform Transaction (Money Transfer) (POST /api/Transaction/transfer)
+
+Get Transaction by ID (GET /api/Transaction/{id})
+
+Get All Transactions (GET /api/Transaction)
+
+-----------------------------------------------------------------------------
+
+⚡ Async/Await Handling
+All services and controllers are implemented with async/await to simulate asynchronous operations, even though data is in-memory (Task.FromResult, Task.CompletedTask).
+
+-----------------------------------------------------------------------------
+
+📖 API Documentation & Testing
+Instead of Postman, Swagger UI is used:
+
+Auto-generated documentation for all endpoints
+
+Built-in support for testing requests/responses
+
+Shows schema of DTOs
+
+-----------------------------------------------------------------------------
+
+📖 Swagger API Sample Inputs & Outputs
+👥 Customer API
+-----------------------------------------------------------------------------
+🔹 Create Customer
+POST /api/Customer
+
+Request (Body)
+
+json
+Copy
+Edit
+{
+  "name": "Adhnan"
+}
+Response (201 Created)
+
+json
+Copy
+Edit
+{
+  "id": 1,
+  "name": "Adhnan",
+  "accounts": []
+}
+
+json
+Copy
+Edit
+{
+  "name": "Subashinii"
+}
+Response (201 Created)
+
+json
+Copy
+Edit
+{
+  "id": 2,
+  "name": "Subashinii",
+  "accounts": []
+}
+
+-----------------------------------------------------------------------------
+
+🔹 Get All Customers
+GET /api/Customer
+
+Response (200 OK)
+
+json
+Copy
+Edit
+[
+  {
+    "id": 1,
+    "name": "Adhnan",
+    "accounts": []
+  },
+  {
+    "id": 2,
+    "name": "Subashinii",
+    "accounts": []
+  }
+]
+
+-----------------------------------------------------------------------------
+
+💳 Account API
+🔹 Create Account
+POST /api/Account
+
+Request (Body)
+
+json
+Copy
+Edit
+{
+  "accHolderId": 1,
+  "bankBalance": 5000
+}
+Response (201 Created)
+
+json
+Copy
+Edit
+{
+  "id": 101,
+  "bankBalance": 5000,
+  "accHolder": "Adhnan",
+  "transactions": []
+}
+
+-----------------------------------------------------------------------------
+
+🔹 Get All Accounts
+GET /api/Account
+
+json
+Copy
+Edit
+{
+  "accHolderId": 2,
+  "bankBalance": 3000
+}
+Response (201 Created)
+
+json
+Copy
+Edit
+{
+  "id": 102,
+  "bankBalance": 3000,
+  "accHolder": "Subashinii",
+  "transactions": []
+}
+
+-----------------------------------------------------------------------------
+
+🔹 Get All Accounts
+GET /api/Account
+
+Response (200 OK)
+
+json
+Copy
+Edit
+[
+  {
+    "id": 101,
+    "bankBalance": 5000,
+    "accHolder": "Adhnan",
+    "transactions": []
+  },
+  {
+    "id": 102,
+    "bankBalance": 3000,
+    "accHolder": "Subashinii",
+    "transactions": []
+  }
+]
+
+-----------------------------------------------------------------------------
+
+💸 Transaction API
+🔹 Perform Transaction
+POST /api/Transaction/transfer
+
+Request (Body)
+
+json
+Copy
+Edit
+{
+  "fromAccId": 101,
+  "toAccId": 102,
+  "amount": 1500
+}
+Response (200 OK)
+
+json
+Copy
+Edit
+{
+  "transactionId": "8f46c91d-5d32-4b91-9f85-b4c47ff9e125",
+  "fromAccId": 101,
+  "toAccId": 102,
+  "amount": 1500,
+  "status": "Success"
+}
+
+-----------------------------------------------------------------------------
+
+🔹 Get All Transactions
+GET /api/Transaction
+
+Response (200 OK)
+
+json
+Copy
+Edit
+[
+  {
+    "transactionId": "8f46c91d-5d32-4b91-9f85-b4c47ff9e125",
+    "fromAccId": 101,
+    "toAccId": 102,
+    "amount": 1500,
+    "status": "Success"
+  },
+  {
+    "transactionId": "b96f5c24-7e54-4f19-8011-54abf7db6a88",
+    "fromAccId": 102,
+    "toAccId": 101,
+    "amount": 500,
+    "status": "Success"
+  }
+]
+
+-----------------------------------------------------------------------------
+
+⚠️ Error Example
+🔹 Insufficient Balance Transfer
+POST /api/Transaction/transfer
+
+Request (Body)
+
+json
+Copy
+Edit
+{
+  "fromAccId": 101,
+  "toAccId": 102,
+  "amount": 999999
+}
+Response (400 Bad Request / 409 Conflict)
+
+json
+Copy
+Edit
+{
+  "message": "Insufficient funds."
+}
+
+-----------------------------------------------------------------------------
+
+🧪 Unit Testing
+Written with xUnit + Moq
+
+Covers:
+
+Customer creation, update, delete
+
+Account creation and update
+
+Transaction logic (including insufficient funds case)
+
+Validates repository interaction and business rules
+
+-----------------------------------------------------------------------------
+
+📌 Example Flow (via Swagger)
+Create a Customer → POST /api/Customer
+
+Create an Account for that customer → POST /api/Account
+
+Transfer Money between accounts → POST /api/Transaction/transfer
+
+Check Transaction History → GET /api/Transaction
+
+-----------------------------------------------------------------------------
