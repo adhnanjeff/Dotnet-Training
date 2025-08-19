@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Hostel.MVC.Models.StudentViewModel>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Student List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Room Id</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Students Found</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var room in Model)
+            {
+                <tr>
+                    <td>@room.Id</td>
+                    <td>@room.Name</td>
+                    <td>@room.RoomId</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@room.Id">View</a> |
+                        <a asp-action="Edit" asp-route-id="@room.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@room.Id">Delete</a> |
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
