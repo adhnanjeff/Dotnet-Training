@@ -1,3 +1,4 @@
+using Hostel.API.Extensions;
 using Hostel.Application.Services;
 using Hostel.Core.Interfaces;
 using Hostel.Infrastructure.Repositories;
@@ -21,6 +22,9 @@ builder.Services.AddScoped<IRoomService, RoomService>();
 
 
 var app = builder.Build();
+
+app.UseGlobalExceptionMiddleware(); // ---------
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

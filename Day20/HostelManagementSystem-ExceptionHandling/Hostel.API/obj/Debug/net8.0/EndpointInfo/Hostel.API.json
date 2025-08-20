@@ -306,11 +306,16 @@
       },
       "StaffRequestDTO": {
         "required": [
-          "name"
+          "name",
+          "password"
         ],
         "type": "object",
         "properties": {
           "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           }

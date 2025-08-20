@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JxLqIaA+lts=",
+  "dgSpecHash": "9/VOGXGDxWA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\adhnjeff\\source\\repos\\DontnetTraining\\Day19\\HostelManagementSystem-MVC\\Hostel.MVC\\Hostel.MVC.csproj",
+  "projectFilePath": "C:\\Users\\adhnjeff\\source\\repos\\DontnetTraining\\Day20\\HostelManagementSystem-ExceptionHandling\\Hostel.MVC\\Hostel.MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adhnjeff\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
