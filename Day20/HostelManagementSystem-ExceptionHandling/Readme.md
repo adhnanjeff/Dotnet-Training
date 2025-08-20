@@ -810,6 +810,7 @@ ConflictException → 409 Conflict
 Global Exception Middleware
 All exceptions are caught in a single middleware component:
 
+```csharp
 switch (ex)
 {
     case NotFoundException nf:
