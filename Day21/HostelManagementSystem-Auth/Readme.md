@@ -838,6 +838,89 @@ switch (ex)
         message = "An unexpected error occurred.";
         break;
 }
----
+```
+
+**🔐 JWT Authentication**
+*Overview*
+
+The system now supports JWT (JSON Web Token) authentication to secure API endpoints. Only authorized users with a valid token can access protected resources.
+
+*Implementation Details*
+
+Authentication Middleware: Configured in Program.cs using AddAuthentication().AddJwtBearer().
+
+Authorization: Added with [Authorize] attribute on controller actions.
+
+Token Generation: Implemented in AuthController. On successful login, a signed JWT token is issued.
+
+Swagger Integration: Configured with AddSecurityDefinition and AddSecurityRequirement to allow token entry in Swagger UI.
+
+*Configuration*
+
+In appsettings.json, the JWT section defines security parameters:
+
+"JWT": {
+  "Key": "ThisIsAReallyStrongSecretKey1234567890!",
+  "Issuer": "HostelAPI",
+  "Audience": "HostelClient",
+  "ExpirationInMinutes": 5
+}
+
+
+Key → Secret used for signing the token (must be ≥ 256 bits for HS256).
+
+Issuer → Identifies the issuing authority (API).
+
+Audience → Identifies the intended consumer (Client).
+
+ExpirationInMinutes → Token expiry time.
+
+*Usage Flow*
+
+Login Request
+Send credentials to:
+
+POST /api/Auth/login
+
+
+*Request Example*
+
+{
+  "username": "admin",
+  "password": "pass"
+}
+
+
+*Response Example*
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5..."
+}
+
+
+Authorize in Swagger
+
+Click the Authorize button in Swagger UI.
+
+Enter:
+
+eyJhbGciOiJIUzI1NiIsInR5...<token\key>
+
+
+*Access Protected Endpoints*
+Endpoints with [Authorize] (e.g., BugController) will require a valid token.
+
+401 Unauthorized → Token missing, expired, or invalid.
+
+403 Forbidden → Token valid but user lacks required role/claim.
+
+*Example Protected Endpoint*
+[Authorize]
+[HttpGet("async")]
+public async Task<ActionResult<IEnumerable<BugResponseDTO>>> GetAllAsync()
+{
+    var bugs = await _service.GetAllBugsAsync();
+    return Ok(bugs);
+}
 
 **Author**: Adhnan Jeff
