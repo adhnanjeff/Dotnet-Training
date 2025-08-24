@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace EventEase.Core.Entities
 {
     public class User

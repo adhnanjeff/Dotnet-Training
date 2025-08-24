@@ -1,5 +1,4 @@
 ﻿using EventEase.Core.DTOs;
-using EventEase.Core.Entities;
 using EventEase.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

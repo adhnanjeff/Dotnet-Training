@@ -1,6 +1,7 @@
 ﻿using EventEase.Core.DTOs;
 using EventEase.Core.Entities;
 using EventEase.Core.Interfaces;
+using EventEase.Core.Exceptions;
 
 namespace EventEase.Application.Services
 {
@@ -25,12 +26,12 @@ namespace EventEase.Application.Services
             // ✅ Check event existence
             var eventExists = await _eventService.GetEventByIdAsync(registrationDto.EventId);
             if (eventExists == null)
-                throw new Exception($"Event with ID {registrationDto.EventId} does not exist.");
+                throw new NotFoundException($"Event with ID {registrationDto.EventId} does not exist.");
 
             // ✅ Check user existence
             var userExists = await _userService.GetUserByIdAsync(registrationDto.UserId);
             if (userExists == null)
-                throw new Exception($"User with ID {registrationDto.UserId} does not exist.");
+                throw new NotFoundException($"User with ID {registrationDto.UserId} does not exist.");
 
             // ✅ Prevent duplicate registrations
             var allRegistrations = await _registrationRepository.GetAllAsync();
@@ -38,7 +39,7 @@ namespace EventEase.Application.Services
                 .Any(r => r.EventId == registrationDto.EventId && r.UserId == registrationDto.UserId);
 
             if (alreadyRegistered)
-                throw new Exception("User is already registered for this event.");
+                throw new ConflictException("User is already registered for this event.");
 
             // ✅ Generate next Id
             int nextId = allRegistrations.Any()
@@ -59,19 +60,17 @@ namespace EventEase.Application.Services
             // ✅ Return response DTO with Id
             return new RegisterationResponseDTO
             {
-                Id = registration.Id, // add Id in DTO
+                Id = registration.Id,
                 UserId = registration.UserId,
                 EventId = registration.EventId,
                 DateTime = registration.RegDate
             };
         }
 
-
         public async Task<List<RegisterationResponseDTO>> GetAllRegistrationsAsync()
         {
             var registrations = await _registrationRepository.GetAllAsync();
 
-            // ✅ Map Entity -> DTO
             return registrations.Select(r => new RegisterationResponseDTO
             {
                 UserId = r.UserId,
@@ -83,9 +82,9 @@ namespace EventEase.Application.Services
         public async Task<RegisterationResponseDTO?> GetRegistrationByIdAsync(int id)
         {
             var registration = await _registrationRepository.GetByIdAsync(id);
-            if (registration == null) return null;
+            if (registration == null)
+                throw new NotFoundException($"Registration with ID {id} not found.");
 
-            // ✅ Map Entity -> DTO
             return new RegisterationResponseDTO
             {
                 UserId = registration.UserId,
@@ -98,7 +97,7 @@ namespace EventEase.Application.Services
         {
             var registration = await _registrationRepository.GetByIdAsync(id);
             if (registration == null)
-                throw new Exception($"Registration with ID {id} does not exist.");
+                throw new NotFoundException($"Registration with ID {id} does not exist.");
 
             await _registrationRepository.DeleteAsync(id);
         }

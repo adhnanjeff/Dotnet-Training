@@ -1,6 +1,7 @@
 ﻿using EventEase.Core.DTOs;
 using EventEase.Core.Entities;
 using EventEase.Core.Interfaces;
+using EventEase.Core.Exceptions;
 
 namespace EventEase.Application.Services
 {
@@ -15,7 +16,15 @@ namespace EventEase.Application.Services
 
         public async Task<UserResponseDTO> AddUserAsync(UserRequestDTO userDto)
         {
+            if (string.IsNullOrWhiteSpace(userDto.Email))
+                throw new ValidationException("User email cannot be empty.");
+
             var allUsers = await _userRepository.GetAllAsync();
+
+            // Prevent duplicate email
+            if (allUsers.Any(u => u.Email == userDto.Email))
+                throw new ConflictException($"A user with email {userDto.Email} already exists.");
+
             int nextId = allUsers.Any()
                 ? allUsers.Max(u => u.Id) + 1
                 : 1;
@@ -38,14 +47,12 @@ namespace EventEase.Application.Services
             };
         }
 
-
         public async Task UpdateUserAsync(int id, UserRequestDTO userDto)
         {
-            var allUsers = await _userRepository.GetAllAsync();
-            var existingUser = allUsers.FirstOrDefault(u => u.Id == id);
+            var existingUser = await _userRepository.GetByIdAsync(id);
 
             if (existingUser == null)
-                throw new Exception("User not found");
+                throw new NotFoundException($"User with ID {id} not found.");
 
             existingUser.Name = userDto.Name;
             existingUser.Email = userDto.Email;
@@ -55,6 +62,10 @@ namespace EventEase.Application.Services
 
         public async Task DeleteUserAsync(int id)
         {
+            var existingUser = await _userRepository.GetByIdAsync(id);
+            if (existingUser == null)
+                throw new NotFoundException($"User with ID {id} not found.");
+
             await _userRepository.DeleteAsync(id);
         }
 
@@ -73,7 +84,8 @@ namespace EventEase.Application.Services
         public async Task<UserResponseDTO?> GetUserByIdAsync(int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
-            if (user == null) return null;
+            if (user == null)
+                throw new NotFoundException($"User with ID {id} not found.");
 
             return new UserResponseDTO
             {
@@ -85,4 +97,3 @@ namespace EventEase.Application.Services
         }
     }
 }
-
