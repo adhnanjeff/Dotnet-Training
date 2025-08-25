@@ -1,0 +1,22 @@
+﻿@model Hostel.MVC.Models.StudentViewModel
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Room @Model.Id</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Student ID</dt>
+    <dd class="col-sm-10">@Model.Id</dd>
+
+    <dt class="col-sm-2">Staff Name</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">Room Id</dt>
+    <dd class="col-sm-10">@Model.RoomId</dd>
+</dl>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>
