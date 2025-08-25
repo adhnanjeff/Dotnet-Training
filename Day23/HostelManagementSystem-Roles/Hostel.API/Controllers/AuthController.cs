@@ -59,39 +59,52 @@ namespace Hostel.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequestDTO loginRequestDTO)
         {
-            // ✅ Dummy validation (replace with DB check or UserService)
-            if (loginRequestDTO.Username == "admin" && loginRequestDTO.Password == "pass")
-            {
-                var token = GenerateJwtToken(loginRequestDTO.Username);
-                return Ok(new { Token = token });
-            }
+            var user = _users.FirstOrDefault(u => u.Username == loginRequestDTO.Username);
 
-            return Unauthorized(new { Message = "Invalid credentials" });
+            if (user == null)
+                return Unauthorized(new { Message = "Invalid credentials" });
+
+            // ✅ Verify hashed password
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, loginRequestDTO.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+                return Unauthorized(new { Message = "Invalid credentials" });
+
+            // ✅ Generate JWT with expiration
+            var (token, expiration) = GenerateJwtToken(user);
+
+            return Ok(new
+            {
+                Token = token,
+                ExpiresAt = expiration
+            });
         }
 
-        private string GenerateJwtToken(string username)
+        private (string Token, DateTime Expiration) GenerateJwtToken(User username)
         {
             var jwtSettings = _config.GetSection("Jwt");
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            // ✅ Add claims
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, "Admin") // Example role
+                new Claim(JwtRegisteredClaimNames.Sub, username.Username),
+                new Claim(ClaimTypes.Role, username.Role),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
+
+            var expiration = DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpireMinutes"]));
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
                 audience: jwtSettings["Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpireMinutes"])),
+                expires: expiration,
                 signingCredentials: credentials
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return (new JwtSecurityTokenHandler().WriteToken(token), expiration);
         }
     }
 }
