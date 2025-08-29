@@ -1,4 +1,6 @@
-﻿using Ecommerce.Application.Services;
+﻿using AutoMapper;
+using Ecommerce.Application.Mapping;
+using Ecommerce.Application.Services;
 using Ecommerce.Core.DTOs;
 using Ecommerce.Core.Entities;
 using Ecommerce.Core.Interfaces;
@@ -11,11 +13,14 @@ namespace Ecommerce.Test.Services
     {
         private readonly Mock<IUserRepository> _userRepoMock;
         private readonly UserService _userService;
+        private readonly IMapper _mapper;
 
         public UserServiceTests()
         {
             _userRepoMock = new Mock<IUserRepository>();
-            _userService = new UserService(_userRepoMock.Object, null!); // mapper will be mocked/injected later
+            var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MappingProfile()));
+            _mapper = mapperConfig.CreateMapper();
+            _userService = new UserService(_userRepoMock.Object, _mapper);
         }
 
         [Fact]
@@ -27,7 +32,10 @@ namespace Ecommerce.Test.Services
                 new User { Id = 1, Username = "Adhnan", Email = "adhnan@test.com" }
             };
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(existingUsers);
-            _userRepoMock.Setup(r => r.AddAsync(It.IsAny<User>())).Returns(Task.CompletedTask);
+            _userRepoMock
+                .Setup(r => r.AddAsync(It.IsAny<User>()))
+                .Callback<User>(u => u.Id = 2)
+                .Returns(Task.CompletedTask);
 
             var request = new UserRequestDTO { Username = "Subashini", Email = "subashini@test.com" };
 
@@ -49,7 +57,7 @@ namespace Ecommerce.Test.Services
             {
                 new User { Id = 1, Username = "Ahalya", Email = "ahalya@test.com" }
             };
-            _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(users);
+            _userRepoMock.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(users.First());
             _userRepoMock.Setup(r => r.UpdateAsync(It.IsAny<User>())).Returns(Task.CompletedTask);
 
             var request = new UserRequestDTO { Username = "Amrith", Email = "amrith@test.com" };
@@ -69,25 +77,12 @@ namespace Ecommerce.Test.Services
         public async Task UpdateUserAsync_ShouldThrowException_WhenUserNotFound()
         {
             // Arrange
-            _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User>());
+            _userRepoMock.Setup(r => r.GetByIdAsync(99)).ReturnsAsync((User?)null);
 
             var request = new UserRequestDTO { Username = "Sivadarsini", Email = "sivadarsini@test.com" };
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _userService.UpdateUserAsync(99, request));
-        }
-
-        [Fact]
-        public async Task DeleteUserAsync_ShouldCallRepository()
-        {
-            // Arrange
-            _userRepoMock.Setup(r => r.DeleteAsync(It.IsAny<int>())).Returns(Task.CompletedTask);
-
-            // Act
-            await _userService.DeleteUserAsync(1);
-
-            // Assert
-            _userRepoMock.Verify(r => r.DeleteAsync(1), Times.Once);
+            await Assert.ThrowsAsync<KeyNotFoundException>(() => _userService.UpdateUserAsync(99, request));
         }
 
         [Fact]

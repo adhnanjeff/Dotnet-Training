@@ -1,43 +1,68 @@
-﻿using Moq;
-using AutoMapper;
-using Ecommerce.Core.Interfaces;
+﻿using AutoMapper;
+using Ecommerce.Application.Mapping;
 using Ecommerce.Application.Services;
 using Ecommerce.Core.DTOs;
+using Ecommerce.Core.Entities;
+using Ecommerce.Core.Interfaces;
+using Moq;
+using Xunit;
 
-public class ProductServiceTests
+namespace Ecommerce.Test.Services
 {
-    private readonly Mock<IProductRepository> _repoMock;
-    private readonly IMapper _mapper;
-    private readonly ProductService _service;
-
-    public ProductServiceTests()
+    public class ProductServiceTests
     {
-        _repoMock = new Mock<IProductRepository>();
+        private readonly Mock<IProductRepository> _productRepositoryMock;
+        private readonly Mock<IUserRepository> _userRepositoryMock;
+        private readonly IMapper _mapper;
+        private readonly ProductService _productService;
 
-        var config = new MapperConfiguration(cfg =>
+        public ProductServiceTests()
         {
-            cfg.CreateMap<ProductRequestDTO, Product>();
-            cfg.CreateMap<Product, ProductResponseDTO>();
-        });
-        _mapper = config.CreateMapper();
+            _productRepositoryMock = new Mock<IProductRepository>();
+            _userRepositoryMock = new Mock<IUserRepository>();
+            var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MappingProfile()));
+            _mapper = mapperConfig.CreateMapper();
 
-        _service = new ProductService(_repoMock.Object, _mapper);
-    }
+            _productService = new ProductService(
+                _productRepositoryMock.Object,
+                _userRepositoryMock.Object,
+                _mapper
+            );
+        }
 
-    [Fact]
-    public async Task AddProductAsync_ShouldReturnResponseDTO()
-    {
-        // Arrange
-        var request = new ProductRequestDTO { Name = "Laptop", Price = 1200 };
-        var entity = new Product { Id = 1, Name = "Laptop", Price = 1200 };
+        [Fact]
+        public async Task GetAllProductsAsync_ShouldReturnProducts()
+        {
+            // Arrange
+            var products = new List<Product>
+            {
+                new Product { Id = 1, Name = "P1", Price = 10, Stock = 5, SellerId = 100 },
+                new Product { Id = 2, Name = "P2", Price = 20, Stock = 2, SellerId = 101 }
+            };
+            _productRepositoryMock.Setup(r => r.GetAllAsync()).ReturnsAsync(products);
 
-        _repoMock.Setup(r => r.AddAsync(It.IsAny<Product>())).Returns(Task.CompletedTask);
+            // Act
+            var result = await _productService.GetAllProductsAsync();
 
-        // Act
-        var result = await _service.AddProductAsync(request);
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count);
+        }
 
-        // Assert
-        Assert.NotNull(result);
-        Assert.Equal("Laptop", result.Name);
+        [Fact]
+        public async Task AddProductAsync_ShouldValidateSellerRole()
+        {
+            // Arrange
+            var request = new ProductRequestDTO { Name = "P1", Price = 10, Stock = 5, SellerId = 1 };
+            var seller = new User { Id = 1, Role = "Seller" };
+            _userRepositoryMock.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(seller);
+            _productRepositoryMock.Setup(r => r.AddAsync(It.IsAny<Product>())).Returns(Task.CompletedTask);
+
+            // Act
+            var response = await _productService.AddProductAsync(request);
+
+            // Assert
+            Assert.Equal("P1", response.Name);
+        }
     }
 }
