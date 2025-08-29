@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DVrGftyuqKg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\adhnjeff\\source\\repos\\DontnetTraining\\Assessments\\Assessment6-EcommercePro\\EcommercePro\\Ecommerce.Application\\Ecommerce.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adhnjeff\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\adhnjeff\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
