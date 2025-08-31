@@ -1,11 +1,13 @@
 ﻿using Ecommerce.Core.DTOs;
 using Ecommerce.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // 🔐 Require JWT authentication for all endpoints
     public class OrderItemController : ControllerBase
     {
         private readonly IOrderItemService _orderItemService;
@@ -16,6 +18,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")] // 🔐 Only Admin can view all order items
         public async Task<IActionResult> GetAll()
         {
             var orderItems = await _orderItemService.GetAllOrderItemsAsync();
@@ -23,6 +26,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Buyer")] // 🔐 Only Buyers can create order items (add to cart)
         public async Task<IActionResult> Create(OrderItemRequestDTO dto)
         {
             var orderItem = await _orderItemService.AddOrderItemAsync(dto);
@@ -30,6 +34,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Buyer,Admin")] // 🔐 Buyers can remove items from cart, Admin can delete any
         public async Task<IActionResult> Delete(int id)
         {
             await _orderItemService.DeleteOrderItemAsync(id);

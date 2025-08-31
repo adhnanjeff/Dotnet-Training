@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Ecommerce.Core.DTOs;
-using Ecommerce.Core.DTOs.Ecommerce.Core.DTOs;
 using Ecommerce.Core.Entities;
 using Ecommerce.Core.Interfaces;
 
@@ -15,6 +14,13 @@ namespace Ecommerce.Application.Services
         {
             _userRepository = userRepository;
             _mapper = mapper;
+        }
+
+        public async Task<UserResponseDTO> CreateUser(UserRequestDTO user)
+        {
+            var entity = _mapper.Map<User>(user);
+            await _userRepository.AddAsync(entity);
+            return _mapper.Map<UserResponseDTO>(entity);
         }
 
         public async Task<UserResponseDTO> AddUserAsync(UserRequestDTO user)
