@@ -14,3 +14,5 @@ C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-Ecommerce
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-EcommercePro\EcommercePro\Ecommerce.Infrastructure\obj\Debug\net8.0\refint\Ecommerce.Infrastructure.dll
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-EcommercePro\EcommercePro\Ecommerce.Infrastructure\obj\Debug\net8.0\Ecommerce.Infrastructure.pdb
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-EcommercePro\EcommercePro\Ecommerce.Infrastructure\obj\Debug\net8.0\ref\Ecommerce.Infrastructure.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-EcommercePro\EcommercePro\Ecommerce.Infrastructure\bin\Debug\net8.0\Ecommerce.Infrastructure.runtimeconfig.json
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment6-EcommercePro\EcommercePro\Ecommerce.Infrastructure\obj\Debug\net8.0\Ecommerce.Infrastructure.genruntimeconfig.cache

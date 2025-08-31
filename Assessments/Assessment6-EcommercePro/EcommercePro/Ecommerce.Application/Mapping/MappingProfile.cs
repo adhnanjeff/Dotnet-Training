@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Ecommerce.Core.DTOs;
-using Ecommerce.Core.DTOs.Ecommerce.Core.DTOs;
 using Ecommerce.Core.Entities;
 
 namespace Ecommerce.Application.Mapping

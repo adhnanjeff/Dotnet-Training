@@ -1,51 +1,49 @@
 ﻿using Ecommerce.Core.Entities;
 using Ecommerce.Core.Interfaces;
+using Ecommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly List<Product> _products = new();
+        private readonly AppDbContext _context;
 
-        public Task<IEnumerable<Product>> GetAllAsync()
+        public ProductRepository(AppDbContext context)
         {
-            return Task.FromResult<IEnumerable<Product>>(_products);
+            _context = context;
         }
 
-        public Task<Product?> GetByIdAsync(int id)
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
-            return Task.FromResult<Product?>(product);
+            return await _context.Products.Include(p => p.Seller).ToListAsync();
         }
 
-        public Task AddAsync(Product entity)
+        public async Task<Product?> GetByIdAsync(int id)
         {
-            // Simple auto-increment logic for in-memory demo
-            entity.Id = _products.Count > 0 ? _products.Max(p => p.Id) + 1 : 1;
-            _products.Add(entity);
-
-            return Task.CompletedTask;
+            return await _context.Products.Include(p => p.Seller).FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public Task UpdateAsync(Product entity)
+        public async Task AddAsync(Product entity)
         {
-            var index = _products.FindIndex(p => p.Id == entity.Id);
-            if (index != -1)
-            {
-                _products[index] = entity; // replace with updated entity
-            }
-            return Task.CompletedTask;
+            await _context.Products.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task UpdateAsync(Product entity)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
+            _context.Products.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
             if (product != null)
             {
-                _products.Remove(product);
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
             }
-
-            return Task.CompletedTask;
         }
     }
 }

@@ -41,10 +41,10 @@ namespace Ecommerce.Application.Services
             };
 
             decimal total = 0;
-            foreach (var id in request.OrderItemIds)
+            foreach (var idOrder in request.OrderItemIds)
             {
-                var cartItem = await _orderItemRepository.GetByIdAsync(id);
-                if (cartItem == null) throw new NotFoundException($"Order item with Id {id} not found.");
+                var cartItem = await _orderItemRepository.GetByIdAsync(idOrder);
+                if (cartItem == null) throw new NotFoundException($"Order item with Id {idOrder} not found.");
                 if (cartItem.CustomerId != request.CustomerId) throw new ForbiddenException("Order item does not belong to this customer.");
 
                 var product = await _productRepository.GetByIdAsync(cartItem.ProductId);
@@ -63,17 +63,6 @@ namespace Ecommerce.Application.Services
 
                 product.Stock -= cartItem.Quantity; // reduce stock upon order creation
                 await _productRepository.UpdateAsync(product);
-
-                // reflect in buyer/seller lists
-                customer.Bought.Add(product);
-                if (product.SellerId > 0)
-                {
-                    var seller = await _userRepository.GetByIdAsync(product.SellerId);
-                    if (seller != null)
-                    {
-                        seller.Sold.Add(product);
-                    }
-                }
 
                 // clear cart item
                 await _orderItemRepository.DeleteAsync(cartItem.Id);

@@ -1,53 +1,57 @@
-﻿using Ecommerce.Core.Interfaces;
+﻿using Ecommerce.Core.Entities;
+using Ecommerce.Core.Interfaces;
+using Ecommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly List<Order> _orders = new();
+        private readonly AppDbContext _context;
 
-        public Task<IEnumerable<Order>> GetAllAsync()
+        public OrderRepository(AppDbContext context)
         {
-            return Task.FromResult<IEnumerable<Order>>(_orders);
+            _context = context;
         }
 
-        public Task<Order?> GetByIdAsync(int id)
+        public async Task<IEnumerable<Order>> GetAllAsync()
         {
-            var order = _orders.FirstOrDefault(o => o.Id == id);
-            return Task.FromResult<Order?>(order);
+            return await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.Items)
+                    .ThenInclude(i => i.Product)
+                .ToListAsync();
         }
 
-        public Task AddAsync(Order entity)
+        public async Task<Order?> GetByIdAsync(int id)
         {
-            // Simple auto-increment logic for in-memory demo
-            entity.Id = _orders.Count > 0 ? _orders.Max(o => o.Id) + 1 : 1;
-            _orders.Add(entity);
-
-            return Task.CompletedTask;
+            return await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.Items)
+                    .ThenInclude(i => i.Product)
+                .FirstOrDefaultAsync(o => o.Id == id);
         }
 
-        public Task UpdateAsync(Order entity)
+        public async Task AddAsync(Order entity)
         {
-            var existingOrder = _orders.FirstOrDefault(o => o.Id == entity.Id);
-            if (existingOrder != null)
-            {
-                existingOrder.TotalAmount = entity.TotalAmount;
-                existingOrder.CustomerId = entity.CustomerId;
-                existingOrder.Items = entity.Items; 
-            }
-
-            return Task.CompletedTask;
+            await _context.Orders.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task UpdateAsync(Order entity)
         {
-            var order = _orders.FirstOrDefault(o => o.Id == id);
+            _context.Orders.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var order = await _context.Orders.FindAsync(id);
             if (order != null)
             {
-                _orders.Remove(order);
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
             }
-
-            return Task.CompletedTask;
         }
     }
 }

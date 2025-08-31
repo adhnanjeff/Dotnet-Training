@@ -1,49 +1,49 @@
 ﻿using Ecommerce.Core.Entities;
 using Ecommerce.Core.Interfaces;
+using Ecommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly List<User> _users = new();
+        private readonly AppDbContext _context;
 
-        public Task<IEnumerable<User>> GetAllAsync()
+        public UserRepository(AppDbContext context)
         {
-            return Task.FromResult<IEnumerable<User>>(_users);
+            _context = context;
         }
 
-        public Task<User?> GetByIdAsync(int id)
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            var user = _users.FirstOrDefault(u => u.Id == id);
-            return Task.FromResult<User?>(user);
+            return await _context.Users.ToListAsync();
         }
 
-        public Task AddAsync(User entity)
+        public async Task<User?> GetByIdAsync(int id)
         {
-            entity.Id = _users.Count > 0 ? _users.Max(u => u.Id) + 1 : 1;
-            _users.Add(entity);
-
-            return Task.CompletedTask;
-        }
-        public Task UpdateAsync(User entity)
-        {
-            var index = _users.FindIndex(u => u.Id == entity.Id);
-            if (index != -1)
-            {
-                _users[index] = entity; 
-            }
-            return Task.CompletedTask;
+            return await _context.Users.FindAsync(id);
         }
 
-        public Task DeleteAsync(int id)
+        public async Task AddAsync(User entity)
         {
-            var user = _users.FirstOrDefault(u => u.Id == id);
+            await _context.Users.AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(User entity)
+        {
+            _context.Users.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
             if (user != null)
             {
-                _users.Remove(user);
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
             }
-
-            return Task.CompletedTask;
         }
     }
 }

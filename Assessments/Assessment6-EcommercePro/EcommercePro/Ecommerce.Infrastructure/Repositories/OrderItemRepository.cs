@@ -1,38 +1,62 @@
-﻿using Ecommerce.Core.Interfaces;
+﻿using Ecommerce.Core.Entities;
+using Ecommerce.Core.Interfaces;
+using Ecommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Infrastructure.Repositories
 {
     public class OrderItemRepository : IOrderItemRepository
     {
-        private readonly List<OrderItem> _orderItems = new();
-        public Task<IEnumerable<OrderItem>> GetAllAsync()
-        {
-            return Task.FromResult<IEnumerable<OrderItem>>(_orderItems);
-        }
-        public Task AddAsync(OrderItem orderItem)
-        {
-            orderItem.Id = _orderItems.Count > 0 ? _orderItems.Max(oi => oi.Id) + 1 : 1;
-            _orderItems.Add(orderItem);
+        private readonly AppDbContext _context;
 
-            return Task.CompletedTask;
-        }
-        public Task DeleteAsync(int orderItemId)
+        public OrderItemRepository(AppDbContext context)
         {
-            _orderItems.RemoveAll(oi => oi.Id == orderItemId);
-            return Task.CompletedTask;
+            _context = context;
         }
 
-        public Task<OrderItem?> GetByIdAsync(int id)
+        public async Task<IEnumerable<OrderItem>> GetAllAsync()
         {
-            var item = _orderItems.FirstOrDefault(oi => oi.Id == id);
-            return Task.FromResult<OrderItem?>(item);
+            return await _context.OrderItems
+                .Include(oi => oi.Product)
+                .Include(oi => oi.Customer)
+                .Include(oi => oi.Order)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<OrderItem>> GetByIdsAsync(IEnumerable<int> ids)
+        public async Task AddAsync(OrderItem orderItem)
+        {
+            await _context.OrderItems.AddAsync(orderItem);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int orderItemId)
+        {
+            var orderItem = await _context.OrderItems.FindAsync(orderItemId);
+            if (orderItem != null)
+            {
+                _context.OrderItems.Remove(orderItem);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<OrderItem?> GetByIdAsync(int id)
+        {
+            return await _context.OrderItems
+                .Include(oi => oi.Product)
+                .Include(oi => oi.Customer)
+                .Include(oi => oi.Order)
+                .FirstOrDefaultAsync(oi => oi.Id == id);
+        }
+
+        public async Task<IEnumerable<OrderItem>> GetByIdsAsync(IEnumerable<int> ids)
         {
             var set = new HashSet<int>(ids);
-            var items = _orderItems.Where(oi => set.Contains(oi.Id));
-            return Task.FromResult<IEnumerable<OrderItem>>(items);
+            return await _context.OrderItems
+                .Include(oi => oi.Product)
+                .Include(oi => oi.Customer)
+                .Include(oi => oi.Order)
+                .Where(oi => set.Contains(oi.Id))
+                .ToListAsync();
         }
     }
 }
