@@ -1,0 +1,76 @@
+﻿@model Ecommerce.MVC.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h2>User Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">User ID</dt>
+    <dd class="col-sm-10">@Model.Id</dd>
+
+    <dt class="col-sm-2">Username</dt>
+    <dd class="col-sm-10">@Model.Username</dd>
+
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+
+    <dt class="col-sm-2">Role</dt>
+    <dd class="col-sm-10">@Model.Role</dd>
+
+    <dt class="col-sm-2">Orders</dt>
+    <dd class="col-sm-10">
+        @if (Model.Orders != null && Model.Orders.Any())
+        {
+            <ul>
+                @foreach (var order in Model.Orders)
+                {
+                    <li>@order.Id - @order.TotalAmount</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No orders placed.</p>
+        }
+    </dd>
+
+    <dt class="col-sm-2">Bought Products</dt>
+    <dd class="col-sm-10">
+        @if (Model.BoughtProducts != null && Model.BoughtProducts.Any())
+        {
+            <ul>
+                @foreach (var product in Model.BoughtProducts)
+                {
+                    <li>@product.Name - @product.Price</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No products bought.</p>
+        }
+    </dd>
+
+    <dt class="col-sm-2">Sold Products</dt>
+    <dd class="col-sm-10">
+        @if (Model.SoldProducts != null && Model.SoldProducts.Any())
+        {
+            <ul>
+                @foreach (var product in Model.SoldProducts)
+                {
+                    <li>@product.Name - @product.Price</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No products sold.</p>
+        }
+    </dd>
+</dl>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>

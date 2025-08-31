@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Ecommerce.MVC.Models.UserViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>User List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Orders</th>
+            <th>Bought Products</th>
+            <th>Sold Products</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="8" class="text-center">No Users Found</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Username</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>@(user.Orders != null ? user.Orders.Count : 0)</td>
+                    <td>@(user.BoughtProducts != null ? user.BoughtProducts.Count : 0)</td>
+                    <td>@(user.SoldProducts != null ? user.SoldProducts.Count : 0)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@user.Id">View</a> |
+                        <a asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
