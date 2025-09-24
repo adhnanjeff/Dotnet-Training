@@ -123,3 +123,4 @@ C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment5-EventEase
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment5-EventEase-Phase2\EventEase.API\obj\Debug\net8.0\EventEase.API.pdb
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment5-EventEase-Phase2\EventEase.API\obj\Debug\net8.0\EventEase.API.genruntimeconfig.cache
 C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment5-EventEase-Phase2\EventEase.API\obj\Debug\net8.0\ref\EventEase.API.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Assessments\Assessment5-EventEase-Phase2\EventEase.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -79,6 +79,17 @@ builder.Services.AddSingleton<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 
 builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddDbContext<BugTrackerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 

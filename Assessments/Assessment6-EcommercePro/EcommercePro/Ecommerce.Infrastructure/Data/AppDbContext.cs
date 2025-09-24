@@ -100,9 +100,13 @@ namespace Ecommerce.Infrastructure.Data
         {
             // Build configuration
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory()) // This will point to the Infrastructure folder
-                .AddJsonFile(Path.Combine("..", "Ecommerce.API", "appsettings.json"), optional: false, reloadOnChange: true)
-                .Build();
+            .SetBasePath(Directory.GetCurrentDirectory()) // Fix: Add using Microsoft.Extensions.Configuration;
+            .AddJsonFile(
+                Path.Combine("..", "Ecommerce.API", "appsettings.json"),
+                optional: false,
+                reloadOnChange: true
+            )
+            .Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 

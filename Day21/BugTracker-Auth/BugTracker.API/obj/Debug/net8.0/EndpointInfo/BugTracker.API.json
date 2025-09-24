@@ -429,7 +429,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Enter 'Bearer' [space] and then your valid token.",
+        "description": "Enter your valid token.",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
       }

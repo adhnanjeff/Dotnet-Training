@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Ecommerce.Core.DTOs;
+using Ecommerce.Core.DTOs.Ecommerce.Core.DTOs;
 using Ecommerce.Core.Entities;
 using Ecommerce.Core.Interfaces;
 

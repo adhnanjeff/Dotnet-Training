@@ -27,11 +27,22 @@ namespace BugTracker.Infrastructure.Repositories
 
         public Task UpdateAsync(Project project)
         {
+            var existingProject = _projects.FirstOrDefault(p => p.Id == project.Id);
+            if (existingProject != null)
+            {
+                existingProject.Name = project.Name;
+                existingProject.Description = project.Description;
+            }
             return Task.CompletedTask;
         }
 
         public Task DeleteAsync(int id)
         {
+            var project = _projects.FirstOrDefault(p => p.Id == id);
+            if (project != null)
+            {
+                _projects.Remove(project);
+            }
             return Task.CompletedTask;
         }
     }

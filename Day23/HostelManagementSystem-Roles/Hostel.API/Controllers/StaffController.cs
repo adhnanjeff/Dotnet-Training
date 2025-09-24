@@ -36,7 +36,7 @@ namespace Hostel.API.Controllers
             return Ok(staff);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create([FromBody] StaffRequestDTO staffRequestDTO)
         {

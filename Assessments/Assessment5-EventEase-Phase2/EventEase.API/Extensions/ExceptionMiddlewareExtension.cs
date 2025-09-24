@@ -1,7 +1,7 @@
 ﻿using EventEase.API.Middleware;
 using System.Runtime.CompilerServices;
 
-namespace Hostel.API.Extensions
+namespace EventEase.API.Extensions
 {
     public static class ExceptionMiddlewareExtension
     {

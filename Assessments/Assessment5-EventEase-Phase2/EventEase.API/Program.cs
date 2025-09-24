@@ -1,6 +1,7 @@
 using EventEase.Core.Interfaces;
 using EventEase.Infrastructure.Repositories;
 using EventEase.Application.Services;
+using EventEase.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
