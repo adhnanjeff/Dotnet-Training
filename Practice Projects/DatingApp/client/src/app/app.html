@@ -1,0 +1,73 @@
+<div class="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/10 p-6">
+  <div class="container mx-auto max-w-6xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-extrabold text-primary mb-4 flex items-center justify-center gap-3">
+        <ng-icon name="heroUser" class="w-14 h-14 text-secondary"></ng-icon>
+        {{ title }}
+      </h1>
+      <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+        Discover and connect with amazing members of our community 🚀
+      </p>
+    </div>
+
+    <!-- Members Section -->
+    @if (members(); as m) {
+      <!-- Stats -->
+      <div class="stats shadow-lg w-full mb-10 bg-base-100 rounded-2xl">
+        <div class="stat">
+          <div class="stat-title">Total Members</div>
+          <div class="stat-value text-primary">{{ m.length }}</div>
+          <div class="stat-desc">and growing every day 🎉</div>
+        </div>
+      </div>
+
+      <!-- Members Grid -->
+      @if (m.length > 0) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          @for (member of m; track member.id) {
+            <div
+              class="card bg-base-100 shadow-xl hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 border border-base-200 rounded-2xl"
+            >
+              <div class="card-body p-6">
+                <!-- Avatar + Name -->
+                <div class="flex items-center space-x-4">
+                  <div class="avatar">
+                    <div
+                      class="bg-gradient-to-br from-primary to-secondary text-primary-content rounded-full w-14 h-14 flex items-center justify-center shadow-md"
+                    >
+                      <ng-icon name="heroUser" class="w-6 h-6" style="display: block;"></ng-icon>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="card-title text-xl font-semibold">{{ member.userName }}</h3>
+                    <p class="text-sm text-base-content/60">#{{ member.id }}</p>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="card-actions justify-end mt-6">
+                  <button class="btn btn-sm btn-outline btn-primary">Message</button>
+                  <button class="btn btn-sm btn-primary">View Profile</button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <!-- Empty state -->
+        <div class="text-center py-24">
+          <ng-icon name="heroUser" class="w-16 h-16 text-primary mb-4"></ng-icon>
+          <h2 class="text-2xl font-semibold text-base-content mb-2">No members yet</h2>
+          <p class="text-base text-base-content/70">Be the first one to join this awesome community!</p>
+        </div>
+      }
+    } @else {
+      <!-- Loading State -->
+      <div class="flex flex-col items-center justify-center py-24">
+        <div class="loading loading-spinner loading-lg text-primary mb-6"></div>
+        <p class="text-xl text-base-content/70">Fetching members... please wait</p>
+      </div>
+    }
+  </div>
+</div>

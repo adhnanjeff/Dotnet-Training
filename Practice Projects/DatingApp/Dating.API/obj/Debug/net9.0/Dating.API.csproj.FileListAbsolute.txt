@@ -159,3 +159,4 @@ C:\Users\adhnjeff\source\repos\DontnetTraining\Practice Projects\DatingApp\Datin
 C:\Users\adhnjeff\source\repos\DontnetTraining\Practice Projects\DatingApp\Dating.API\obj\Debug\net9.0\Dating.API.pdb
 C:\Users\adhnjeff\source\repos\DontnetTraining\Practice Projects\DatingApp\Dating.API\obj\Debug\net9.0\Dating.API.genruntimeconfig.cache
 C:\Users\adhnjeff\source\repos\DontnetTraining\Practice Projects\DatingApp\Dating.API\obj\Debug\net9.0\ref\Dating.API.dll
+C:\Users\adhnjeff\source\repos\DontnetTraining\Practice Projects\DatingApp\Dating.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
